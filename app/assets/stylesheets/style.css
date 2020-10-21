@@ -1,0 +1,39 @@
+.header-title {
+
+}
+
+.contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;background-image: url(post.image)
+}
+
+.post-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.post-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.post-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.post-name {
+  font-size: 2.5vh;
+}

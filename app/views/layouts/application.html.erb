@@ -10,6 +10,19 @@
   </head>
 
   <body>
+  <header class="header">
+      <div class="header__bar row">
+        <h1 class="header-title"><a href="/">PowerSpot</a></h1>
+        <div class="user_nav grid-6">
+          <a class="post" href="/posts/new">投稿する</a>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <p>
+        Copyright PowerSpot 2020.
+      </p>
+    </footer>
   </body>
 </html>

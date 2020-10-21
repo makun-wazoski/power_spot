@@ -1,0 +1,19 @@
+<div class="contents">
+  <ul class='post-lists'>
+  <% @posts.each do |post| %>
+    <li class="list">
+      <%# <%= link_to '#', method: :get do %> %>
+        <div class='post-img-content'>
+          <%# <%= image_tag '#', class: 'item-img'%> %>
+        </div>
+
+        <div class='post-info'>
+          <h3 class='post-name'>
+            <%= post.name %>
+          </h3>
+        </div>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
