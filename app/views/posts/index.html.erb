@@ -1,13 +1,19 @@
-<div class="contents row">
+<div class="contents">
+  <ul class='post-lists'>
   <% @posts.each do |post| %>
-    <div class="content_post" style="background-image: url(<%= post.image %>);">
-      <p><%= post.impressions %></p>
-      <span class="name">
-        <%= post.name %>
-      </span>
-      <%# <p><%= post.url %></p> %>
-      <%# <p><%= post.impressions %></p> %>
-    </div>
+    <li class="list">
+      <%# <%= link_to '#', method: :get do %> %>
+        <div class='post-img-content'>
+          <%# <%= image_tag '#', class: 'item-img'%> %>
+        </div>
+
+        <div class='post-info'>
+          <h3 class='post-name'>
+            <%= post.name %>
+          </h3>
+        </div>
+    </li>
   <% end %>
+  </ul>
 </div>
 
