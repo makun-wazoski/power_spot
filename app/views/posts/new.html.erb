@@ -1,8 +1,10 @@
 <div class="contents">
   <div class="container">
    <h3>投稿する</h3>
+   
      <%= form_with model: @post, url:posts_path,local: true do |f| %>
-     <%# <%=f.file_fild :'#', id:"post-image"%> %>
+     <%= render 'layouts/error_messages', model: f.object %>
+     <%=f.file_field :image, id:"post-image" %>
      <%=f.text_field :name, class:"posts-text", id:"post-name", size: 30, maxlength: "30"%>   
      <%=f.text_area :url, class:"posts-text", id:"post-url"%>   
      <%=f.text_area :impressions, class:"posts-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想文を書く"%>   
