@@ -18,6 +18,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    # ここで言う(params[:id])はindex.html.rbのpost_path(post.id)（詳細画面表示パスと投稿id）＝投稿したparams.idのことをさす。
+    # post.idが「３」ならparams[:id]=>3、つまりpostテーブルidが3のものに対し処理を行う。
+    @post= Post.find(params[:id])
+  end 
+
   private
   def post_params
     params.require(:post).permit(:image, :name, :url, :impressions).merge(user_id: current_user.id)

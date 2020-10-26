@@ -2,7 +2,8 @@
   <ul class='post-lists'>
   <% @posts.each do |post| %>
     <li class="list">
-      <%# <%= link_to post_path(post.id), method: :get do %> %>
+    <%# ↓詳細画面へ飛ぶ記述、post_path(post.id)はルーティングの設定で出現 %>
+      <%= link_to post_path(post.id), method: :get do %>
         <div class='post-img-content'>
           <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
         </div>
@@ -12,6 +13,7 @@
             <%= post.name %>
           </h3>
         </div>
+      <%end%>
     </li>
   <% end %>
   </ul>
