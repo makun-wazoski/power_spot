@@ -12,7 +12,7 @@
     <%# <% if user_signed_in? && current_user.id == @item.user_id %> %>
       <%# <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %> %>
       <%# <p class='or-text'>or</p> %>
-      <%# <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %> %>
+      <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy' %>
     <%# <% end %> %>
     
     <%# // ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう %>
