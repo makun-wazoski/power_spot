@@ -1,0 +1,62 @@
+<div class="posts-edit-main">
+    <h2 class="post-edit-title">記録情報の入力</h2>
+    <%= form_with model:@post, url:post_path, method: :patch, local: true do |f| %>
+
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%# <%= render 'layouts/error_messages', model: f.object %> %>
+    
+    <%# 画像 %>
+    <div class="img-upload">
+      <%# <div class="weight-bold-text"> %>
+        <%# 画像 %>
+        <%# <span class="indispensable">必須</span> %>
+      <%# </div> %>
+      <div class="click-upload">
+        <%# <p>
+          クリックしてファイルをアップロード
+        </p> %>
+        <%= f.file_field :image, id:"post-image" %>
+      </div>
+    </div>
+    <%# 画像 %>
+    <%# 名前と記録情報 %>
+    <div class="new-posts">
+      <div class="weight-bold-text">
+        名前
+        <%# <span class="indispensable">必須</span> %>
+      </div>
+      <%= f.text_field :name, class:"posts-text", id:"post-name", placeholder:"名前（必須 20文字まで)", maxlength:"20" %>
+      <%# <%= f.text_area :item, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %> %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          URL
+          <%# <span class="indispensable">必須</span> %>
+        </div>
+        <%= f.text_area :url, class:"posts-text", id:"post-url", placeholder:"url"%>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+    <%# 商品の詳細 %>
+    <div class="posts-detail">
+      <%# <div class="weight-bold-text">商品の詳細</div> %>
+      <%# <div class="form"> %>
+        <div class="weight-bold-text">
+          感想
+          <%# <span class="indispensable">必須</span> %>
+        </div>
+        <%= f.text_area :impressions, class:"posts-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想を書く"%>   
+      <%# </div> %>
+    </div>
+    <%# /商品の詳細 %>
+
+    <%# 下部ボタン %>
+    <div class="update-btn-contents">
+      <%= f.submit "変更する" ,class:"update-btn" %>
+      <%=link_to 'もどる', post_path, method: :get, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  <% end %>
+  　<div class="modoru">
+    </div>
+</div>
