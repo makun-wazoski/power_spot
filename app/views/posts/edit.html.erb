@@ -25,14 +25,14 @@
         名前
         <%# <span class="indispensable">必須</span> %>
       </div>
-      <%= f.text_field :post, class:"posts-text", id:"post-name", placeholder:"名前（必須 20文字まで)", maxlength:"20" %>
+      <%= f.text_field :name, class:"posts-text", id:"post-name", placeholder:"名前（必須 20文字まで)", maxlength:"20" %>
       <%# <%= f.text_area :item, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %> %>
       <div class="items-explain">
         <div class="weight-bold-text">
           URL
           <%# <span class="indispensable">必須</span> %>
         </div>
-        <%= f.text_area :url, class:"posts-text", id:"post-url", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :url, class:"posts-text", id:"post-url", placeholder:"url"%>
       </div>
     </div>
     <%# /商品名と商品説明 %>
@@ -45,7 +45,7 @@
           感想
           <%# <span class="indispensable">必須</span> %>
         </div>
-        <%= f.text_area :impressions, class:"posts-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想文を書く"%>   
+        <%= f.text_area :impressions, class:"posts-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想を書く"%>   
       <%# </div> %>
     </div>
     <%# /商品の詳細 %>
