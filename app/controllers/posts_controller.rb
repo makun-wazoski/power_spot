@@ -22,6 +22,8 @@ class PostsController < ApplicationController
     # ここで言う(params[:id])はindex.html.rbのpost_path(post.id)（詳細画面表示パスと投稿id）＝投稿したparams.idのことをさす。
     # post.idが「３」ならparams[:id]=>3、つまりpostテーブルidが3のものに対し処理を行う。
     @post= Post.find(params[:id])
+    @comment= Comment.new
+    @comments= @post.comments.includes(:user)
   end 
 
   def destroy
