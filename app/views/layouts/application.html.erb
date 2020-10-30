@@ -16,6 +16,9 @@
         <%if user_signed_in?%>
           <div class="user_nav">
             <%= link_to current_user.nickname, "#", class: "user-nickname" %>
+            <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %>
+              
+            end %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
             <%=link_to "投稿する", new_post_path, class: "post"%>
           </div>
@@ -26,6 +29,7 @@
           </div>
         <%end%>
       </div>
+      
     </header>
     <%= yield %>
     <footer>
