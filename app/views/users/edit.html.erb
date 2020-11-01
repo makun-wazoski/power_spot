@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="user-container">
+    <h3 class="edit-profile">プロフィール編集<hr>
+    </h3>
+    <div >
+      <%= form_with model: @user, url:posts_path,local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+        <ul class="profile-details">
+          <li class="details">写真</li>
+            <%=f.file_field :image, id:"user-image" %>
+          <li class="details">ニックネーム</li>
+            <%=f.text_field :nickname, class:"nickname", autofocus: true, maxlength: "20" %>
+          <li class="details">Eメール</li>
+            <%= f.email_field :email, class:"email", autofocus: true, autocomplete: "email" %>
+          <li class="details">紹介文</li>
+            <%=f.text_area :introduction, class:"user-introduction", size: "90x5", maxlength: "1000", placeholder: "紹介文を書く"%>
+          <li class="details">お気に入りスポット</li>
+            <%=f.text_field :favorite_spot, class:"user-favorite_spot", size: "90",maxlength: "100", placeholder: "お気に入りのスポットを書く"%>
+            <%=f.submit "SEND" %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
