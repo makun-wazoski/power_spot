@@ -1,20 +1,28 @@
-<div class="my-posts">
-  <p><%= @nickname %>さんの投稿一覧</p>
-
-  <% @posts.each do |post| %>
-    <ul class='mypost-lists'>
-      <li class="list">
-        <%= link_to post_path(post.id), method: :get do %>
-          <div class='post-img-content'>
-            <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
-          </div>
-          <div class='post-info'>
-            <h3 class='post-name'>
-              <%= post.name %>
-            </h3>
-          </div>
+<div id="container">
+  <div class="user-container-show">
+    <h3 class="user-prof-show">
+      <%= @user.nickname%>
+      <hr class="user-show-hr">
+    </h3>
+      <div class="my-posts">
+        <p><%= @nickname %>さんの投稿一覧</p>
+      
+        <% @posts.each do |post| %>
+          <ul class='mypost-lists'>
+            <li class="list">
+              <%= link_to post_path(post.id), method: :get do %>
+                <div class='post-img-content'>
+                  <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
+                </div>
+                <div class='post-info'>
+                  <h3 class='post-name'>
+                    <%= post.name %>
+                  </h3>
+                </div>
+              <%end%>
+            </li>
+          </ul>
         <%end%>
-      </li>
-    </ul>
-  <%end%>
+      </div>
+    </div>
 </div>
