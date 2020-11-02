@@ -4,7 +4,11 @@
       <%= @user.nickname%>
       <hr class="user-show-hr">
     </h3>
-    <%=image_tag @user.image,size:"200", class: "user-ocon" %>
+    <%if @user.image.attached?%>
+      <%=image_tag @user.image, size:"200", class: "user-iocon" %>
+    <% else %>
+      <%= image_tag "account_def.png", alt:"user-icon", size: "200", class:"user-icon"%>
+    <% end %>
     <ul class="user-detail-show">
       <li class="user-favorit-spot">
       お気に入りスポット

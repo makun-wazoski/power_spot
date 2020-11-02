@@ -5,7 +5,7 @@
       <%= @post.name %>
     </h2>
     <div class='post-img-content'>
-      <%= image_tag @post.image ,class:"post-box-img" %>
+      <%= image_tag @post.image , size: "300", class:"post-box-img" %>
     </div>
 
     <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう%>
