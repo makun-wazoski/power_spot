@@ -4,6 +4,20 @@
       <%= @user.nickname%>
       <hr class="user-show-hr">
     </h3>
+    <%=image_tag @user.image,size:"200", class: "user-ocon" %>
+    <ul class="user-detail-show">
+      <li class="user-favorit-spot">
+      お気に入りスポット
+      </li>
+      <%=@user.favorite_spot%>
+      <li class="user-introducition">
+      紹介文
+      </li>
+      <%=@user.introduction%>
+    </ul>
+
+    <%= link_to "プロフィールを編集", edit_user_path(current_user.id), method: :get, class: "edit-prof-show" %>
+    
       <div class="my-posts">
         <p><%= @nickname %>さんの投稿一覧</p>
       
@@ -24,5 +38,5 @@
           </ul>
         <%end%>
       </div>
-    </div>
+  </div>
 </div>

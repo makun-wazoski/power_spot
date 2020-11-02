@@ -13,14 +13,17 @@ class UsersController < ApplicationController
 
   def update
     @user=User.find(params[:id])
-    if user.update(user_params)
-      redirect_to user_path(@user)
+    # binding.pry
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
     else
       render :edit
     end
   end
 
+  private
+  
   def user_params
-    params.require(:user).permit(:image, :email, :nickname, :introduction, :favorit_spot).merge(user_id: current_user.id)
+    params.require(:user).permit(:image, :email, :nickname, :introduction, :favorite_spot)
   end
 end

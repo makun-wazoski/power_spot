@@ -3,8 +3,9 @@
     <h3 class="edit-profile">プロフィール編集<hr>
     </h3>
     <div >
-      <%= form_with model: @user, url:posts_path,local: true do |f| %>
+      <%= form_with model: @user, url:user_path,method: :patch, local: true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
+
         <ul class="profile-details">
           <li class="details">写真</li>
             <%=f.file_field :image, id:"user-image" %>
