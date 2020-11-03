@@ -1,18 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def show
-    @user = User.find(params[:id])
     @nickname= @user.nickname
     @posts = @user.posts
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user=User.find(params[:id])
     # binding.pry
     if @user.update(user_params)
       redirect_to user_path(@user.id)
@@ -21,9 +19,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    redirect_to root_path
+  end
+
   private
   
   def user_params
     params.require(:user).permit(:image, :email, :nickname, :introduction, :favorite_spot)
+  end
+
+  def set_user
+    @user=User.find(params[:id])
   end
 end
