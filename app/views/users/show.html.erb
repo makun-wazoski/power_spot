@@ -1,20 +1,46 @@
-<div class="my-posts">
-  <p><%= @nickname %>さんの投稿一覧</p>
-
-  <% @posts.each do |post| %>
-    <ul class='mypost-lists'>
-      <li class="list">
-        <%= link_to post_path(post.id), method: :get do %>
-          <div class='post-img-content'>
-            <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
-          </div>
-          <div class='post-info'>
-            <h3 class='post-name'>
-              <%= post.name %>
-            </h3>
-          </div>
-        <%end%>
+<div id="container">
+  <div class="user-container-show">
+    <h3 class="user-prof-show">
+      <%= @user.nickname%>
+      <hr class="user-show-hr">
+    </h3>
+    <%if @user.image.attached?%>
+      <%=image_tag @user.image, size:"200", class: "user-iocon" %>
+    <% else %>
+      <%= image_tag "account_def.png", alt:"user-icon", size: "200", class:"user-icon"%>
+    <% end %>
+    <ul class="user-detail-show">
+      <li class="user-favorit-spot">
+      お気に入りスポット
       </li>
+      <%=@user.favorite_spot%>
+      <li class="user-introducition">
+      紹介文
+      </li>
+      <%=@user.introduction%>
     </ul>
-  <%end%>
+
+    <%= link_to "プロフィールを編集", edit_user_path(current_user.id), method: :get, class: "edit-prof-show" %>
+    
+      <div class="my-posts">
+        <p><%= @nickname %>さんの投稿一覧</p>
+      
+        <% @posts.each do |post| %>
+          <ul class='mypost-lists'>
+            <li class="list">
+              <%= link_to post_path(post.id), method: :get do %>
+                <div class='post-img-content'>
+                  <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
+                </div>
+                <div class='post-info'>
+                  <h3 class='post-name'>
+                    <%= post.name %>
+                  </h3>
+                </div>
+              <%end%>
+            </li>
+          </ul>
+        <%end%>
+      </div>
+  </div>
 </div>

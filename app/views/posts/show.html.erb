@@ -5,12 +5,12 @@
       <%= @post.name %>
     </h2>
     <div class='post-img-content'>
-      <%= image_tag @post.image ,class:"post-box-img" %>
+      <%= image_tag @post.image , size: "300", class:"post-box-img" %>
     </div>
 
     <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう%>
     <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to '編集', edit_post_path, method: :get, class: "post-red-btn" %>
+      <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-red-btn" %>
       <%# <p class='or-text'>or</p> %>
       <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy' %>
     <% end %>
@@ -34,6 +34,10 @@
           <th class="detail-post">感想</th>
           <td class="detail-value"><%= @post.impressions %></td>
         </tr>
+        <tr>
+          <th class="detail-post">作成日時</th>
+          <td class="detail-value"><%= l @post.created_at %></td>
+        </tr>
       </tbody>
     </table>
     <div class="option">
@@ -51,10 +55,11 @@
 
   <div class="comment-box">
     <%if current_user%>
-      <%=form_with(model: [@post, @comment],local: true) do |f|%>
-        <%=f.text_area :comment,placeholder: "コメントする", rows:"5", maxlength:"300"%>
+      <%=form_with(model: [@post, @comment], local: true) do |f|%>
+      <%=render "layouts/error_messages",model: f.object %>
+        <%=f.text_area :comment,placeholder: "コメントする", size:"60×5", maxlength:"300"%>
         <%=f.submit "SEND"%>
-        <%end%>
+      <%end%>
     <%else%>
       <strong><p>※コメントの投稿には新規登録/ログインが必要です※</p></strong>
     <%end%>
@@ -63,19 +68,25 @@
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
-      <%# <button type="submit" class="comment-btn"> %>
-        <%# <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%> %>
-        <%# <span>コメントする<span> %>
-      <%# </button> %>
+      
       <div class="comments">
         <h4>＜コメント一覧＞</h4>
           <% if @comments%>
             <% @comments.each do |comment|%>
-              <p>
-                <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}"%>:</strong>
-                <%= comment.comment%>
-              </p>
-            <% end %>
+              <div class="comment-list">
+                <p>
+                  <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}"%>:</strong>
+                  <%= comment.comment%>
+                </p>
+                <div class="comment-destroy">
+                  <%if user_signed_in?%>
+                    <%if comment.user_id == current_user.id%>
+                      <%=link_to "削除", post_comment_path(@post,comment), method: :delete %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
           <% end %>
       </div>
   </div>
