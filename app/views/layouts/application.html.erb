@@ -12,20 +12,22 @@
   <body>
   <header class="header">
       <div class="header__bar row">
-        <h1 class="header-title"><a href="/">PowerSpot</a></h1>
-        <%if user_signed_in?%>
-          <div class="user_nav">
-            <%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>
-            <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
-            <%=link_to "投稿する", new_post_path, class: "post"%>
-          </div>
-        <%else%>
-          <div class="header-title">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post"%>
-          </div>
-        <%end%>
+        <%# <%=render "layouts/flash" %> %>
+        <%# <%=render "layouts/error_messages",model: f.object %> %>
+          <h1 class="header-title"><a href="/">PowerSpot</a></h1>
+          <%if user_signed_in?%>
+            <div class="user_nav">
+              <%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>
+              <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
+              <%=link_to "投稿する", new_post_path, class: "post"%>
+            </div>
+          <%else%>
+            <div class="header-title">
+              <%= link_to "ログイン", new_user_session_path, class: "post" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "post"%>
+            </div>
+          <%end%>
       </div>
       
     </header>
