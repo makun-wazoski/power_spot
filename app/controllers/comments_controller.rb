@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     else
       # flash.now[:alert] = "Comment failed"
       # @comment = Comment.new
+      @comments= @post.comments.includes(:user)
       render "posts/show"
     end
   end
