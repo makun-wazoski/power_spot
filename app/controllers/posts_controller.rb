@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -41,6 +41,10 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    @posts = Post.search(params[:keyword])
   end
 
   private

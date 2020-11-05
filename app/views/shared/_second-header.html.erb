@@ -1,0 +1,11 @@
+<header class='top-page-header'>
+  <div class='nav'>
+    <h1 class="header-title"><a href="/">PowerSpot</a></h1>
+      <div class="header__bar row">
+        <%if user_signed_in?%>
+          <div class="user_nav">
+            <%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>
+        <%end%>
+      </div>
+  </div>
+</header>

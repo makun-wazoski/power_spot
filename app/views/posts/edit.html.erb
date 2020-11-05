@@ -1,3 +1,4 @@
+<%=render 'shared/second-header'%>
 <div class="posts-edit-main">
     <h2 class="post-edit-title">記録情報の入力</h2>
     <%= form_with model:@post, url:post_path, method: :patch, local: true do |f| %>
