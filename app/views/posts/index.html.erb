@@ -1,8 +1,8 @@
 <%=render partial: 'header'%>
-<div class="contents">
+<div class="main">
   <ul class='post-lists'>
   <% @posts.each do |post| %>
-    <li class="list">
+    <li class="shadow mb-5 bg-white rounded">
     <%# ↓詳細画面へ飛ぶ記述、post_path(post.id)はルーティングの設定で出現 %>
       <%= link_to post_path(post.id), method: :get do %>
         <div class='post-img-content'>
@@ -19,4 +19,5 @@
   <% end %>
   </ul>
 </div>
+<%=render partial: 'footer'%>
 

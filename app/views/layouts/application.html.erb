@@ -7,35 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
 
   <body>
-  <%# <header class="header"> %>
-      <%# <div class="header__bar row"> %>
-        <%# <%=render "layouts/flash" %> %>
-        <%# <%=render "layouts/error_messages",model: f.object %> %>
-          <%# <h1 class="header-title"><a href="/">PowerSpot</a></h1> %>
-          <%# <%if user_signed_in?%> %>
-            <%# <div class="user_nav"> %>
-              <%# <%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %> %>
-              <%# <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %> %>
-              <%# <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %> %>
-              <%# <%=link_to "投稿する", new_post_path, class: "post"%> %>
-            <%# </div> %>
-          <%# <%else%> %>
-            <%# <div class="header-title"> %>
-              <%# <%= link_to "ログイン", new_user_session_path, class: "post" %> %>
-              <%# <%= link_to "新規登録", new_user_registration_path, class: "post"%> %>
-            <%# </div> %>
-          <%# <%end%> %>
-      <%# </div> %>
-      
-    <%# </header> %>
+  <%# 　 <div class="container"> %>
     <%= yield %>
-    <footer>
-      <p>
-        Copyright PowerSpot 2020.
-      </p>
-    </footer>
+    
+    <%# </div> %>
   </body>
 </html>

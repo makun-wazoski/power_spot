@@ -1,31 +1,30 @@
 <header class='top-page-header'>
-  <div class='nav'>
-    <%# <%=render "layouts/flash" %> %>
-    <%# <%=render "layouts/error_messages",model: f.object %> %>
-      <h1 class="header-title"><a href="/">PowerSpot</a></h1>
-        <div class='search-bar-contents'>
-          <%# <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %> %>
-          <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
-            <%= f.text_field :keyword, class: "search-input", placeholder: 'キーワードから探す' %>
-            <button class="search-button">
-              <%= image_tag "search.png", size: "20", class:"search-icon" %>
-            </button>
-          <% end %>
-        </div>
-        <div class="header__bar row">
-          <%if user_signed_in?%>
-            <div class="user_nav">
-              <%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>
-              <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
-              <%=link_to "投稿する", new_post_path, class: "post"%>
-            </div>
-          <%else%>
-            <div class="header-title">
-              <%= link_to "ログイン", new_user_session_path, class: "post" %>
-              <%= link_to "新規登録", new_user_registration_path, class: "post"%>
-            </div>
-          <%end%>
-        </div>
+  <div class='top-header-main'>
+
+    <h1 class="header-title"><a href="/">PowerSpot</a></h1>
+    <div class="header-bar">
+      <div class='search-bar-contents'>
+      <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
+        <%= f.text_field :keyword, class: "search-input", placeholder: 'キーワードから探す' %>
+        <button class="search-button">
+          <%= image_tag "search.png", class:"search-icon" %>
+        </button>
+      <% end %>
+      </div>
+
+      <div class="header-user-nav">
+      <%if user_signed_in?%>
+        <ul class="user-nav">
+          <li><%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
+          <li><%=link_to "投稿する", new_post_path, class: "post"%></li>
+      <%else%>
+          <li><%= link_to "ログイン", new_user_session_path, class: "login" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "new-post"%></li>
+        </ul>
+      <%end%>
+      </div>
+    </div>
   </div>
 </header>
