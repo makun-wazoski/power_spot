@@ -6,8 +6,15 @@
 }
 
 .post-lists li {
-  /* width: calc((100% - 40px) / 5); */
-  margin: 0 20px 40px;
-  /* width: 100%; */
   /* border: 1px solid #3c9796; */
+  /* width: calc((100% - 40px) / 5); */
+  border-radius: 10px 10px 10px 10px;
+  margin: 0 20px 40px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  /* width: 100%; */
+}
+
+.post-info {
+  /* border: 1px solid #3c9796; */
+  border-radius: 0 0 5px 5px;
 }
