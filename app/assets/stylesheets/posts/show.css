@@ -62,7 +62,6 @@ table {
 }
 
 tr {
-  /* border: 1px solid #3c9796; */
   text-align: left;
   
 }
@@ -132,7 +131,6 @@ td {
   text-align: left;
   overflow-wrap: anywhere;
   padding-left: 10px;
-
 }
 
 .comment-destroy {

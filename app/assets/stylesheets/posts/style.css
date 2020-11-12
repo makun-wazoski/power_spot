@@ -53,3 +53,7 @@ body {
 .post-name {
   font-size: 2.5vh;
 }
+
+.footer-contents {
+  height: 100%;
+}
