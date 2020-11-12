@@ -1,24 +1,42 @@
-<div class="container">
-  <div class="user-container-edit">
-    <h3 class="edit-profile">プロフィール編集<hr>
+<%=render partial: 'posts/header' %>
+
+<div class="col-sm-6 mx-auto mt-5">
+  <div class="card-body">
+    <h3 class="mt-1 mb-5">プロフィール編集<hr>
     </h3>
+
     <div >
-      <%= form_with model: @user, url:user_path,method: :patch, local: true do |f| %>
+      <%= form_with model: @user, url:user_path,method: :pat, class:"form-user-edit mb-2", local: true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
 
-        <ul class="profile-details">
-          <li class="details">写真</li>
-            <%=f.file_field :image, id:"user-image" %>
-          <li class="details">ニックネーム</li>
-            <%=f.text_field :nickname, class:"nickname", autofocus: true, maxlength: "20" %>
-          <li class="details">Eメール</li>
-            <%= f.email_field :email, class:"email", autofocus: true, autocomplete: "email" %>
-          <li class="details">紹介文</li>
-            <%=f.text_area :introduction, class:"user-introduction", size: "90x5", maxlength: "1000", placeholder: "紹介文を書く"%>
-          <li class="details">お気に入りスポット</li>
-            <%=f.text_field :favorite_spot, class:"user-favorite_spot", size: "90",maxlength: "200", placeholder: "お気に入りのスポットを書く"%>
-            <%=f.submit "SEND" %>
-        </ul>
+        <div class="from-group mb-4">
+          <%= f.label :image, "写真", class: "form-label" %><br />
+          <%=f.file_field :image, id:"user-image" %>
+        </div>
+
+          <div class="from-group mb-4"> 
+            <%= f.label :nickname, "ニックネーム", class: "form-label"%><em>(20文字以内）</em><br />
+            <%=f.text_field :nickname, class: "form-control", id:"nickname", autofocus: true, maxlength: "20" %>
+          </div>
+
+          <div class="from-group mb-4">
+            <%= f.label :email, "Eメール", class: "form-label" %><br />
+            <%= f.email_field :email, class: "form-control", id:"email", autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="from-group mb-4">
+            <%= f.label :introduction, "紹介文", class: "form-label" %><br />
+            <%=f.text_area :introduction, class: "form-control", id:"user-introduction", size: "90x5", maxlength: "1000", placeholder: "紹介文を書く"%>
+          </div>
+
+          <div class="from-group mb-4">
+            <%= f.label :favorite_spot, "お気に入りスポット", class: "form-label" %><br />
+            <%=f.text_field :favorite_spot, class: "form-control", id:"user-favorite_spot", size: "90",maxlength: "200", placeholder: "お気に入りのスポットを書く"%>
+        </div>
+
+        <div class="actions">
+          <%=f.submit "SEND",class: "mt-5 btn btn-primary btn-block" %>
+        </div>
       <% end %>
     </div>
     <div class="accpount-destroy">
@@ -26,3 +44,4 @@
     </div>
   </div>
 </div>
+<%= render partial: 'posts/footer'%>

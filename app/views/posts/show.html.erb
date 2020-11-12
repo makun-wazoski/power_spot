@@ -1,93 +1,102 @@
-<%# <%=render partial: 'header'%> %>
+<%=render partial: 'posts/header' %>
+
 <%# 記録の概要 %>
-<div class="post-show">
+<div class="container">
   <div class="post-box">
-    <h2 class="name">
+    <h2 class="post-name">
       <%= @post.name %>
     </h2>
     <div class='post-img-content'>
       <%= image_tag @post.image , size: "300", class:"post-box-img" %>
     </div>
 
-    <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう%>
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-red-btn" %>
-      <%# <p class='or-text'>or</p> %>
-      <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy' %>
-    <% end %>
+    <%# ログインしているユーザと投稿ユーザが同一人物である時、投稿編集と削除を表示させる%>
+    <div class="post-detail-edit">
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-edit-btn" %>
+        <div class='or-text'>or</div>
+        <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy-btn' %>
+      <% end %>
+    </div>
     
     <%# // ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう %>
-
-    <%# <div class="post-explain-box"> %>
-      <%# <span><%= @post.text %></span> %>
-    <%# </div> %>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-post">記録者</th>
-          <td class="detail-value"><%= @post.user.nickname %></td>
-        </tr>
-        <tr>
-          <th class="detail-post">URL</th>
-          <td class="detail-value"><%= @post.url %></td>
-        </tr>
-        <tr>
-          <th class="detail-post">感想</th>
-          <td class="detail-value"><%= @post.impressions %></td>
-        </tr>
-        <tr>
-          <th class="detail-post">作成日時</th>
-          <td class="detail-value"><%= l @post.created_at %></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%> %>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%# <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%> %>
-        <span>不適切な商品の通報</span>
-      </div>
+    <div class="detail-contents">
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-post">記録者</th>
+            <td class="detail-value"><%= link_to @post.user.nickname, user_path(current_user.id), method: :get %></td>
+          </tr>
+          <tr>
+            <th class="detail-post">作成日時</th>
+            <td class="detail-value"><%= l @post.created_at %></td>
+          </tr>
+          <tr>
+            <th class="detail-post">URL</th>
+            <td class="detail-value"><%= raw Rinku.auto_link(@post.url, :urls, 'target="_blank" rel="noopener noreferrer"')%></td>
+          </tr>
+          <tr>
+            <th class="detail-post">感想</th>
+            <td class="detail-value"><%= @post.impressions %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <%# /商品の概要 %>
 
-  <div class="comment-box">
-    <%if current_user%>
-      <%=form_with(model: [@post, @comment], local: true) do |f|%>
-      <%=render "layouts/error_messages",model: f.object %>
-        <%=f.text_area :comment,placeholder: "コメントする", size:"60×5", maxlength:"300"%>
-        <%=f.submit "SEND"%>
-      <%end%>
-    <%else%>
-      <strong><p>※コメントの投稿には新規登録/ログインが必要です※</p></strong>
-    <%end%>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      
+      <%# <div class="option"> %>
+        <%# <div class="favorite-btn"> %>
+          <%# <span>お気に入り 0</span> %>
+        <%# </div> %>
+        <%# <div class="report-btn"> %>
+          <%# <span>不適切な商品の通報</span> %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# /商品の概要 %>
+
+    <div class="comment-box">
       <div class="comments">
         <h4>＜コメント一覧＞</h4>
-          <% if @comments%>
-            <% @comments.each do |comment|%>
-              <div class="comment-list">
-                <p>
-                  <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}"%>:</strong>
-                  <%= comment.comment%>
-                </p>
-                <div class="comment-destroy">
-                  <%if user_signed_in?%>
-                    <%if comment.user_id == current_user.id%>
-                      <%=link_to "削除", post_comment_path(@post,comment), method: :delete %>
+        <% if @comments%>
+          <% @comments.each do |comment|%>
+            <div class="comment-list">
+              <p>
+                <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}", class: "comment-nickname"%>:</strong>
+                <div class="asd">
+                <%= comment.comment%>
+                </div>
+              </p>
+              <div class="comment-destroy">
+                <%if user_signed_in?%>
+                  <%if comment.user_id == current_user.id%>
+                    <%=link_to post_comment_path(@post,comment), method: :delete do %>
+                      <%= image_tag "trash.png", class:"trash-box-img" %>
                     <% end %>
                   <% end %>
-                </div>
+                <% end %>
               </div>
-              <% end %>
+            </div>
           <% end %>
+        <% end %>
       </div>
+
+      <div class="comment-user">
+        <%if current_user%>
+          <%=form_with(model: [@post, @comment], url: post_comments_path(@post), local: true) do |f|%>
+          <%=render "layouts/error_messages",model: f.object %>
+            <div class="comment-content">
+              <%=f.text_area :comment,placeholder: "コメントする", size:"60×5", maxlength:"300", class:"comment-column"%>
+              <%=f.submit "SEND", class: "btn btn-primary btn-lg btn-sm", id:"comment-btn" %>
+            </div>
+          <%end%>
+        <%else%>
+          <strong><p>※コメントの投稿には新規登録/ログインが必要です※</p></strong>
+        <%end%>
+      </div>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+      </p>
+    </div>
   </div>
+</div>
+
+<%= render partial: 'posts/footer'%>
