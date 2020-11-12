@@ -2,14 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
 
-  # def show
-    # @comment = Comment.new
-    # @post = Post.find(params[:post_id])
-    # @comments = @post.comments.includes(:user)
-  # end
-
   def create
-    # @post = Post.find(params[:post_id])
     @comment=@post.comments.create(comment_params)
     if @comment.save
       redirect_to post_path(@post)

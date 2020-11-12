@@ -1,9 +1,3 @@
-body {
-  font-family: 'Koku-Mincho-Regular','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'; 
-  color:rgb(198, 230, 198);
-  background-color: honeydew;
-  }
-
 .header-title {
 
 }
@@ -23,25 +17,15 @@ body {
   justify-content: center;
 }
 
-.post-lists>.list {
+.item-lists>.list {
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
-  /* border: 1px solid #3c9796; */
-
 }
 
 .post-img {
   width: 33vh;
   height: 33vh;
-  border-radius: 50%;
-  transition-duration: .8s;
-}
-
-.post-img:hover {
-  width: 33vh;
-  height: 33vh;
-  border-radius: 5px;  
 }
 
 .post-info {
