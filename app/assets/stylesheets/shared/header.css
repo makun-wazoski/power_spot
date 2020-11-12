@@ -16,7 +16,7 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border: 1px solid #3c9796;
+  /* border: 1px solid #3c9796; */
 }
 
 .search-bar-contents {
@@ -55,7 +55,7 @@ header {
 }
 
 .user-nav {
-  border: 1px solid #3c9796;
+  /* border: 1px solid #3c9796; */
   display: flex;
   padding: 0;
   margin-bottom: 0;
