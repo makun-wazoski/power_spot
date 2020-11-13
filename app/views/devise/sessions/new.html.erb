@@ -2,14 +2,21 @@
   <div class="card-body">
     <h2 class ="mt-1 mb-3">Log in</h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="login-flash-message">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name),id: 'new-session-user', class: 'new-session-user') do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
       <div class="form-group">
-        <%= f.label :email, "email", class: "form-label" %><br />
+        <%= f.label :email, "Eメール", class: "form-label" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password, "password", class:"form-label" %><br />
+        <%= f.label :password, "パスワード", class:"form-label" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </div>
 

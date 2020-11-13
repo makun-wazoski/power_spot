@@ -2,46 +2,46 @@
 
 <div class="post-contents-wrapper">
   <div class="container">
-   <h3 class="post-title">投稿する</h3>
+    <h3 class="post-title">投稿する</h3>
 
-   <div class="post-forms">
-     <%= form_with model: @post, url:posts_path,local: true do |f| %>
-     <%= render 'layouts/error_messages', model: f.object %>
+    <div class="post-forms">
+      <%= form_with model: @post, url:posts_path,local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
 
-       <div class="img-upload">
-         <div class="weight-bold-text">
-            写真
+        <div class="img-upload">
+          <div class="weight-bold-text">
+              画像
+            </div>
+          <%=f.file_field :image, class:"post-text",id:"post-image" %>
+        </div>
+
+        <div class="post-form">
+          <div class="weight-bold-text">
+            名前
           </div>
-         <%=f.file_field :image, class:"post-text",id:"post-image" %>
-       </div>
+          <%=f.text_field :name, class:"post-text", id:"post-name", placeholder: "名前を入れてください",maxlength: "20"%>   
+        </div>
 
-       <div class="post-form">
-         <div class="weight-bold-text">
-           名前
-         </div>
-         <%=f.text_field :name, class:"post-text", id:"post-name", placeholder: "名前を入れてください",maxlength: "20"%>   
-       </div>
+        <div class="post-form">
+          <div class="weight-bold-text">
+            url
+          </div>
+          <%=f.text_area :url, class:"post-text",id:"post-url",placeholder: "urlを入れてください"%>   
+        </div>
 
-       <div class="post-form">
-         <div class="weight-bold-text">
-           url
-         </div>
-         <%=f.text_area :url, class:"post-text",id:"post-url",placeholder: "urlを入れてください"%>   
-       </div>
+        <div class="post-form">
+          <div class="weight-bold-text">
+            感想
+          </div>
+          <%=f.text_area :impressions, class:"post-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想を書く"%>   
+        </div>
 
-       <div class="post-form">
-         <div class="weight-bold-text">
-           感想
-         </div>
-         <%=f.text_area :impressions, class:"post-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想を書く"%>   
-       </div>
+        <div class="newpost-btn-contents">
+          <%=f.submit "送信", class: "btn btn-primary btn-lg btn-sm", id:"new-post-btn" %>
+        </div>
 
-       <div class="newpost-btn-contents">
-         <%=f.submit "送信", class: "btn btn-primary btn-lg btn-sm", id:"new-post-btn" %>
-       </div>
-
-     <% end %>
-   </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <%= render partial: 'posts/footer'%>

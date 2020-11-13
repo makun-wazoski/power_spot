@@ -6,11 +6,11 @@
     </h3>
 
     <div >
-      <%= form_with model: @user, url:user_path,method: :pat, class:"form-user-edit mb-2", local: true do |f| %>
+      <%= form_with model: @user, url:user_path, class:"form-user-edit mb-2", local: true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
 
         <div class="from-group mb-4">
-          <%= f.label :image, "写真", class: "form-label" %><br />
+          <%= f.label :image, "画像", class: "form-label" %><br />
           <%=f.file_field :image, id:"user-image" %>
         </div>
 
@@ -35,7 +35,7 @@
         </div>
 
         <div class="actions">
-          <%=f.submit "SEND",class: "mt-5 btn btn-primary btn-block" %>
+          <%=f.submit "送信", class: "mt-5 btn btn-primary btn-block" %>
         </div>
       <% end %>
     </div>
