@@ -25,7 +25,7 @@
         <tbody>
           <tr>
             <th class="detail-post">記録者</th>
-            <td class="detail-value"><%= link_to @post.user.nickname, user_path(current_user.id), method: :get %></td>
+            <td class="detail-value"><%= link_to @post.user.nickname, user_path(@user.id), method: :get %></td>
           </tr>
           <tr>
             <th class="detail-post">作成日時</th>
