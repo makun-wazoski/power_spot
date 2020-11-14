@@ -85,7 +85,7 @@
           <%=render "layouts/error_messages",model: f.object %>
             <div class="comment-content">
               <%=f.text_area :comment,placeholder: "コメントする", size:"60×5", maxlength:"300", class:"comment-column"%>
-              <%=f.submit "SEND", class: "btn btn-primary btn-lg btn-sm", id:"comment-btn" %>
+              <%=f.submit "送信", class: "btn btn-primary btn-lg btn-sm", id:"comment-btn" %>
             </div>
           <%end%>
         <%else%>

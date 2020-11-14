@@ -11,3 +11,7 @@ ja:
       post:
         image: 画像
         name: 名前
+      comment: 
+          comment: コメント
+      # post:
+        # comment:コメント
