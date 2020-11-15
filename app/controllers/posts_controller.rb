@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post=Post.new(post_params)
+    @post = Post.new(post_params)
     if @post.valid?
       @post.save
       redirect_to root_path
@@ -24,13 +24,13 @@ class PostsController < ApplicationController
     # ここで言う(params[:id])はindex.html.rbのpost_path(post.id)（詳細画面表示パスと投稿id）＝投稿したparams.idのことをさす。
     # post.idが「３」ならparams[:id]=>3、つまりpostテーブルidが3のものに対し処理を行う。
     @user = @post.user
-    @comment= Comment.new
-    @comments= @post.comments.includes(:user)
-  end 
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
+  end
 
   def destroy
     @post.destroy
-      redirect_to root_path
+    redirect_to root_path
   end
 
   def edit
@@ -49,11 +49,12 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:image, :name, :url, :impressions).merge(user_id: current_user.id)
   end
 
   def set_post
-    @post= Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 end

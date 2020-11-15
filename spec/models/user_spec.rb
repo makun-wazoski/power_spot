@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before do 
+  before do
     @user = FactoryBot.build(:user)
   end
-  
+
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
       it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
@@ -21,22 +21,22 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-    
+
     context '新規登録がうまくいかないとき' do
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+        expect(@user.errors.full_messages).to include('ニックネームを入力してください')
       end
-      it "nicknameが20文字以上であれば登録できない" do
-        @user.nickname = "aaaaaaaaaaaaaaaaaaaaa"
+      it 'nicknameが20文字以上であれば登録できない' do
+        @user.nickname = 'aaaaaaaaaaaaaaaaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームは20文字以内で入力してください")
+        expect(@user.errors.full_messages).to include('ニックネームは20文字以内で入力してください')
       end
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメールを入力してください")
+        expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
       it 'emailが@なしでは登録できない' do
         @user.email = 'qqqqqqqq'
@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください", "パスワードは6文字以上で入力してください", "パスワードは不正な値です", "パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください', 'パスワードは6文字以上で入力してください', 'パスワードは不正な値です', 'パスワード（確認用）とパスワードの入力が一致しません')
       end
       it 'passwordが5文字以下であれば登録できない' do
         @user.password = '2w2w2'
@@ -70,12 +70,12 @@ RSpec.describe User, type: :model do
       it 'passwordが英字のみであれば登録できない' do
         @user.password = 'aaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは不正な値です")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません', 'パスワードは不正な値です')
       end
       it 'passwordが半角英数字混合でなければ登録できない' do
         @user.password = '111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは不正な値です")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません', 'パスワードは不正な値です')
       end
     end
   end

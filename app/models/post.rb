@@ -5,14 +5,14 @@ class Post < ApplicationRecord
   has_one_attached :image, dependent: :destroy
 
   with_options presence: true do
-    validates :name, length: {maximum: 20 }
+    validates :name, length: { maximum: 20 }
     validates :image
   end
 
-  validates :impressions, presence: false, length: {maximum: 1000 }
+  validates :impressions, presence: false, length: { maximum: 1000 }
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Post.where('name LIKE(?)', "%#{search}%")
     else
       Post.all

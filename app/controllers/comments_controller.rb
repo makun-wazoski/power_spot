@@ -3,13 +3,13 @@ class CommentsController < ApplicationController
   before_action :set_post
 
   # def show
-    # @comment = Comment.new
-    # @post = Post.find(params[:post_id])
-    # @comments = @post.comments.includes(:user)
+  # @comment = Comment.new
+  # @post = Post.find(params[:post_id])
+  # @comments = @post.comments.includes(:user)
   # end
 
   def create
-    @comment=@post.comments.create(comment_params)
+    @comment = @post.comments.create(comment_params)
     if @comment.save
       redirect_to post_path(@post)
     else
@@ -17,15 +17,15 @@ class CommentsController < ApplicationController
       # @comment = Comment.new
       @user = @post.user
       # @comment= Comment.new
-      @comments= @post.comments.includes(:user)
-      render "posts/show"
+      @comments = @post.comments.includes(:user)
+      render 'posts/show'
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-      redirect_to post_path(@post)
+    redirect_to post_path(@post)
   end
 
   private
