@@ -27,11 +27,11 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %>文字より多く)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "※半角で英語と数字を含めてください", class: "form-control" %>
         </div>
 
         <div class="from-group mb-4">
-          <%= f.label :password_confirmation, "パスワード", class: "form-label" %><br />
+          <%= f.label :password_confirmation, "確認用パスワード", class: "form-label" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
 
