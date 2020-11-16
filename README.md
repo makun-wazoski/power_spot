@@ -8,6 +8,7 @@ Things you may want to cover:
 
 ## アプリケーション名
 Power-Spot  
+  <img width="1440" alt="スクリーンショット 2020-11-16 12 40 59" src="https://user-images.githubusercontent.com/69196800/99210387-00502080-2809-11eb-90e4-876007569730.png">
   
 ## アプリケーション概要
 訪れたパワースポットを思い出として記録でき、他の人にも情報をシェアできるアプリとして開発しました。  
