@@ -2,7 +2,7 @@
 
 <div class="post-contents-wrapper">
   <div class="container">
-    <h3 class="post-title">投稿する</h3>
+    <h3 class="post-title">思い出を投稿する</h3>
 
     <div class="post-forms">
       <%= form_with model: @post, url:posts_path,local: true do |f| %>
@@ -24,7 +24,7 @@
 
         <div class="post-form">
           <div class="weight-bold-text">
-            url
+            参考url
           </div>
           <%=f.text_area :url, class:"post-text",id:"post-url",placeholder: "urlを入れてください"%>   
         </div>
