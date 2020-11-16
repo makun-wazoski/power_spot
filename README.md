@@ -8,7 +8,7 @@ Things you may want to cover:
 
 ## アプリケーション名
 Power-Spot  
-  <img width="1440" alt="スクリーンショット 2020-11-16 12 40 59" src="https://user-images.githubusercontent.com/69196800/99210387-00502080-2809-11eb-90e4-876007569730.png">
+  <img width="1439" alt="スクリーンショット 2020-11-16 20 14 32" src="https://user-images.githubusercontent.com/69196800/99246897-678dc500-2849-11eb-9146-ed4e91a0e66b.png">
   
 ## アプリケーション概要
 訪れたパワースポットを思い出として記録でき、他の人にも情報をシェアできるアプリとして開発しました。  
@@ -16,7 +16,7 @@ Power-Spot
 投稿した内容に他のユーザーが閲覧、コメントができます。  
 旅の計画やスピリチュアル体験の参考に利用できる内容になっています。
   
-## 使用技術（開発環境）
+## 使用技術
 HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub /
   
 ## 作品の背景

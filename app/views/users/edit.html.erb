@@ -21,7 +21,7 @@
 
           <div class="from-group mb-4">
             <%= f.label :email, "Eメール", class: "form-label" %><br />
-            <%= f.email_field :email, class: "form-control", id:"email", autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, class: "form-control", id:"email", autocomplete: "email" %>
           </div>
 
           <div class="from-group mb-4">
@@ -32,7 +32,7 @@
           <div class="from-group mb-4">
             <%= f.label :favorite_spot, "お気に入りスポット", class: "form-label" %><br />
             <%=f.text_field :favorite_spot, class: "form-control", id:"user-favorite_spot", size: "90",maxlength: "200", placeholder: "お気に入りのスポットを書く"%>
-        </div>
+          </div>
 
         <div class="actions">
           <%=f.submit "送信", class: "mt-5 btn btn-primary btn-block" %>

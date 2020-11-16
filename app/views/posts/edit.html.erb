@@ -28,7 +28,6 @@
         <div class="post-form">
           <div class="weight-bold-text">
             参考URL
-              <%# <span class="indispensable">必須</span> %>
           </div>
             <%= f.text_area :url, class:"post-text", id:"post-url", placeholder:"url"%>
         </div>
@@ -39,12 +38,13 @@
           </div>
             <%= f.text_area :impressions, class:"post-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想を書く"%>
         </div>
-        <%# 下部ボタン %>
+        <%# 名前と記録情報 %>
+        
         <div class="update-btn-contents">
           <%= f.submit "変更する" ,class: "btn btn-outline-primary btn-lg btn-sm", id:"edit-post-btn" %>
           <%=link_to 'もどる', post_path, method: :get, class: "btn btn-outline-primary btn-lg btn-sm", id:"back-btn" %>
         </div>
-        <%# /下部ボタン %>
+    
       <% end %>
     </div>
     <div>
