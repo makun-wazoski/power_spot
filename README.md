@@ -115,6 +115,7 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 ## ER図
 <img width="792" alt="スクリーンショット 2020-11-17 11 02 42" src="https://user-images.githubusercontent.com/69196800/99335730-7cf40500-28c4-11eb-826c-90e4b113bb65.png">
 
+
 * Ruby version
 
 * System dependencies
