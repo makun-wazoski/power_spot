@@ -90,8 +90,6 @@ td {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* margin: 10px auto; */
-  /* order: 1px solid rgb(200, 200, 200); */
 }
 
 .comment-column {
@@ -115,12 +113,8 @@ td {
 }
 
 .comment-list p {
-  /* flex-wrap: wrap; */
   margin: 0;
   text-align: left;
-}
-
-.comment-nickname {
 }
 
 .asd {
@@ -133,7 +127,6 @@ td {
 .comment-destroy {
 align-self: flex-end;
 padding-right: 20px;
-/* height: 20px; */
 }
 
 .trash-box-img {

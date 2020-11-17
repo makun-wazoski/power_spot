@@ -4,10 +4,6 @@ body {
   background-color: honeydew;
   }
 
-.header-title {
-
-}
-
 .contents {
   background-color: #FFF;
   display: flex;
@@ -28,7 +24,6 @@ body {
   padding: 1vw;
   background-color: #FFF;
   /* border: 1px solid #3c9796; */
-
 }
 
 .post-img {
@@ -41,7 +36,7 @@ body {
 .post-img:hover {
   width: 33vh;
   height: 33vh;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 .post-info {
