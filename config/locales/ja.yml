@@ -11,6 +11,8 @@ ja:
       post:
         image: 画像
         name: 名前
+        user: ユーザー名
+        impressions: 感想
       comment: 
           comment: コメント
       # post:
