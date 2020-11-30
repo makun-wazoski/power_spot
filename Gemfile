@@ -63,6 +63,7 @@ gem 'image_processing', '~>1.2'
 gem 'devise'
 gem 'rinku'
 gem 'rails-i18n'
+gem 'aws-sdk-s3', require: false
 
 group :production do
   gem 'rails_12factor'
