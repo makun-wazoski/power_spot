@@ -22,7 +22,11 @@
       <%=@user.introduction%>
     </ul>
 
-    <%= link_to "プロフィールを編集", edit_user_path(current_user.id), method: :get, class: "edit-prof-show" %>
+    <div class="edit-prof-show">
+      <% if user_signed_in? && current_user.id == @user.id %>
+      <%= link_to "プロフィールを編集", edit_user_path(current_user.id), method: :get %>
+      <% end %>
+    </div>
     
       <p><%= @nickname %>さんの投稿一覧</p>
       <div class="my-posts">
