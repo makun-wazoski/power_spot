@@ -1,3 +1,7 @@
+.post-contents-wrapper {
+  height: 100vh;
+}
+
 .post-title {
 margin: 30px auto;
 }

@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @post = Post.new(post_params)
     if @post.valid?
       @post.save
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :name, :url, :impressions).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :name, :url, :impressions, :prefecture_id).merge(user_id: current_user.id)
   end
 
   def set_post

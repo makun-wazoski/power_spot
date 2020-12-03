@@ -24,6 +24,13 @@
 
         <div class="post-form">
           <div class="weight-bold-text">
+            場所
+          </div>
+          <%=f.collection_select(:prefecture_id,Prefecture.all, :id,:name, {}, {class:"post-text",id:"post-prefecture"}) %>   
+        </div>
+
+        <div class="post-form">
+          <div class="weight-bold-text">
             参考url
           </div>
           <%=f.text_area :url, class:"post-text",id:"post-url",placeholder: "urlを入れてください"%>   
