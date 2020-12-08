@@ -64,6 +64,10 @@ gem 'devise'
 gem 'rinku'
 gem 'rails-i18n'
 gem 'active_hash'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'gon'
+gem 'dotenv-rails'
 gem 'aws-sdk-s3', require: false
 
 group :production do

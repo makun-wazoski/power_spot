@@ -29,6 +29,15 @@
           <%=f.collection_select(:prefecture_id,Prefecture.all, :id,:name, {}, {class:"post-text",id:"post-prefecture"}) %>   
         </div>
 
+        <%# API参照記事 %>
+        <div class="post-form">
+          <div class="weight-bold-text">
+            Google Map
+          </div>
+          <%=f.text_field :address, class:"post-text", id:"post-address", placeholder: "Google Mapの住所をコピーして貼り付けてください" %>   
+        </div>
+        <%# API参照記事 %>
+
         <div class="post-form">
           <div class="weight-bold-text">
             参考url
@@ -48,6 +57,53 @@
         </div>
 
       <% end %>
+
+      <div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 600px;
+}
+</style>
+
+<script>
+let map
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.7828, lng:-73.9653},
+    zoom: 12,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 40.7828, lng:-73.9653},
+    map: map
+  });
+}
+// ここから追加 
+let geocoder
+
+function codeAddress(){
+  let inputAddress = document.getElementById('address').value;
+
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('該当する結果がありませんでした：' + status);
+    }
+  });   
+}
+// ここまで追加 
+</script>
+<%# <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZSksW-zSB4rfLiVixRf911AMPx3rGL6I"></script> %>
+  <%# <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZSksW-zSB4rfLiVixRf911AMPx3rGL6I&callback=initMap" async defer></script> %>
     </div>
   </div>
 </div>

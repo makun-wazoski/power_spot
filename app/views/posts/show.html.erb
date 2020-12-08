@@ -51,6 +51,57 @@
     </div>
     <%# 投稿内容の詳細 %>
       
+    <%# Google Mapの表示 %>
+    <%# #shopとなっている部分の記述は自身の実装に合わせて変えてください。 %>
+
+
+      <script type="text/javascript">
+        function initMap() {
+      // #latitude,longitudeから位置を特定
+          var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15, 
+                    center: test
+                    });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
+      
+          var contentString = '住所：<%= @post.address %>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+      
+      //  #Map上の指定した位置にピンを挿して表示する
+          var marker = new google.maps.Marker({
+                        position:test,
+                        map: map,
+                        title: contentString
+                      });
+      
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        }
+      </script>
+
+      <%# #以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください %>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
+      </script>
+
+      <%# #表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
+      <%# <style type="text/css">
+        #map { height: 200px;
+              width: 70%;
+              justify-content: center;
+              }
+      </style> %>
+      
+      <%# #mapの表示 %>
+      <div id="map"></div>
+    
+    <%# Google Mapの表示 %>
+
     <%# コメント %>
     <div class="comment-box">
       <div class="comments">

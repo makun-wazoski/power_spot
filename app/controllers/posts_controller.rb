@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    # @post.build_map
   end
 
   def create
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :name, :url, :impressions, :prefecture_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :name, :url, :impressions, :prefecture_id, :address).merge(user_id: current_user.id)
   end
 
   def set_post
