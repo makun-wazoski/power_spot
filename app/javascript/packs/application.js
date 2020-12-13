@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 // require ("jquery.jscroll.min.js")
 require ("../underscore")
-require ("..gmaps/google")
+// require ("..gmaps/google")
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
