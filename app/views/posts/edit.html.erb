@@ -24,28 +24,100 @@
           </div>
             <%= f.text_field :name, class:"post-text", id:"post-name", placeholder:"名前（必須 20文字まで)", maxlength:"20" %>
         </div>
-        
+
+        <%# API参照記事 %>
+        <div class="post-form">
+          <div class="weight-bold-text">
+            Google Map
+          </div>
+          <%=f.text_field :address, class:"post-text", id:"post-address", placeholder: "Google Mapの住所をコピーして貼り付けてください" %>   
+        </div>
+        <%# API参照記事 %>
+
         <div class="post-form">
           <div class="weight-bold-text">
             参考URL
           </div>
             <%= f.text_area :url, class:"post-text", id:"post-url", placeholder:"url"%>
         </div>
+        
+      <%# 変更点 %>
 
         <div class="post-form">
-          <div class="weight-bold-text">
-            感想
+          <%# <div class="weight-bold-text"> %>
+          <%= f.label :tag_list, "タグ付", class: "form-label"%>
+          <%# </div> %>
+          <%=f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control",id:"post-tag-list", placeholder: "タグを追加してください" %>   
           </div>
-            <%= f.text_area :impressions, class:"post-text", id:"post-impressions", size: "100x10", maxlength: "1000", placeholder: "感想を書く"%>
-        </div>
-        <%# 名前と記録情報 %>
-        
-        <div class="update-btn-contents">
+
+          <div class="post-form">
+            <div class="weight-bold-text">
+              感想
+            </div>
+              <%=f.text_area :impressions, class:"post-text", id:"post-impressions", placeholder: "感想を書く"%>   
+          </div>
+
+          <div class="update-btn-contents">
           <%= f.submit "変更する" ,class: "btn btn-outline-primary btn-lg btn-sm", id:"edit-post-btn" %>
           <%=link_to 'もどる', post_path, method: :get, class: "btn btn-outline-primary btn-lg btn-sm", id:"back-btn" %>
         </div>
-    
+
       <% end %>
+
+          <div id='map'></div>
+
+        <style>
+        #map {
+          height: 600px;
+          width: 600px;
+          }
+        </style>
+
+        <script>
+        let map
+        function initMap(){
+          geocoder = new google.maps.Geocoder()
+
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 40.7828, lng:-73.9653},
+            zoom: 12,
+          });
+
+          marker = new google.maps.Marker({
+            position:  {lat: 40.7828, lng:-73.9653},
+            map: map
+          });
+        }
+        // ここから追加 
+        let geocoder
+
+        function codeAddress(){
+          let inputAddress = document.getElementById('address').value;
+
+          geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+            if (status == 'OK') {
+              map.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+              });
+            } else {
+              alert('該当する結果がありませんでした：' + status);
+            }
+          });   
+        }
+        // ここまで追加 
+        </script>
+        <%# <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZSksW-zSB4rfLiVixRf911AMPx3rGL6I"></script> %>
+          <%# <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZSksW-zSB4rfLiVixRf911AMPx3rGL6I&callback=initMap" async defer></script> %>
+            </div>
+          </div>
+        </div>
+
+        <%# 変更点 %>
+
+        <%# 名前と記録情報 %>
+        
     </div>
     <div>
   </div>

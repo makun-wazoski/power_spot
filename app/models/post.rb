@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
 
 
   with_options presence: true do

@@ -4,6 +4,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).order('created_at DESC')
+    if params[:tag_name]
+      @posts = Post.tagged_with(params[:tag_name])
+    #   # .page(params[:page])
+    end
+    @tags = Post.tag_counts_on(:tags)
+    # @tag_lists = Tag.all
   end
 
   def new
@@ -28,6 +34,7 @@ class PostsController < ApplicationController
     @user = @post.user
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
+    @post_tags = @post.tags 
   end
 
   def destroy
@@ -47,13 +54,21 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).order('created_at DESC')
   end
+
+  # def tags
+  #   @tags = Post.includes(:taggings).tag_counts_on(:tags)
+  # end
+
+  # def get_tag_search
+  #   @tags = Post.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
+  # end
 
   private
 
   def post_params
-    params.require(:post).permit(:image, :name, :url, :impressions, :prefecture_id, :address).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :name, :url, :impressions, :prefecture_id, :address, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_post

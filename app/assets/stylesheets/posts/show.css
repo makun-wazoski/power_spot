@@ -22,6 +22,7 @@
 }
 
 .post-box-img {
+  margin: 0 auto;
   height: 500px;
   width: 500px;
   border-radius: 10px;
@@ -114,6 +115,7 @@ td {
   border-radius: 3px;
   margin-bottom: 20px;
   justify-content: space-between;
+  text-align: left;
   flex-wrap: wrap;
   flex-direction: column;
 }

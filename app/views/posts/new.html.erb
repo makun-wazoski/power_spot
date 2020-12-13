@@ -5,58 +5,7 @@
     <h3 class="post-title">思い出を投稿する</h3>
 
     <div class="post-forms">
-      <%= form_with model: @post, url:posts_path,local: true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-
-        <div class="img-upload">
-          <div class="weight-bold-text">
-              画像
-            </div>
-          <%=f.file_field :image, class:"post-text",id:"post-image" %>
-        </div>
-
-        <div class="post-form">
-          <div class="weight-bold-text">
-            名前
-          </div>
-          <%=f.text_field :name, class:"post-text", id:"post-name", placeholder: "名前を入れてください",maxlength: "20"%>   
-        </div>
-
-        <div class="post-form">
-          <div class="weight-bold-text">
-            場所
-          </div>
-          <%=f.collection_select(:prefecture_id,Prefecture.all, :id,:name, {}, {class:"post-text",id:"post-prefecture"}) %>   
-        </div>
-
-        <%# API参照記事 %>
-        <div class="post-form">
-          <div class="weight-bold-text">
-            Google Map
-          </div>
-          <%=f.text_field :address, class:"post-text", id:"post-address", placeholder: "Google Mapの住所をコピーして貼り付けてください" %>   
-        </div>
-        <%# API参照記事 %>
-
-        <div class="post-form">
-          <div class="weight-bold-text">
-            参考url
-          </div>
-          <%=f.text_area :url, class:"post-text",id:"post-url",placeholder: "urlを入れてください"%>   
-        </div>
-
-        <div class="post-form">
-          <div class="weight-bold-text">
-            感想
-          </div>
-          <%=f.text_area :impressions, class:"post-text", id:"post-impressions", placeholder: "感想を書く"%>   
-        </div>
-
-        <div class="newpost-btn-contents">
-          <%=f.submit "送信", class: "btn btn-primary btn-lg btn-sm", id:"new-post-btn" %>
-        </div>
-
-      <% end %>
+      <%= render partial: "form", locals: { post: @post } %>
 
       <div id='map'></div>
 

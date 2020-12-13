@@ -43,6 +43,17 @@
             <td class="detail-value"><%= raw Rinku.auto_link(@post.url, :urls, 'target="_blank" rel="noopener noreferrer"')%></td>
           </tr>
           <tr>
+            <th class="detail-post">タグ</th>
+            <td class="detail-value">
+            <% @post.tag_list.each do |tag| %>
+            <span class="label label-primary">
+              <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
+            </span>
+              <% end %>
+            </td>
+          </tr>
+          
+          <tr>
             <th class="detail-post">感想</th>
             <td class="detail-value"><%= @post.impressions %></td>
           </tr>
@@ -50,6 +61,10 @@
       </table>
     </div>
     <%# 投稿内容の詳細 %>
+
+    <%# 試験的にタグを配置 %>
+        
+    <%# 試験的にタグを配置 %>
       
     <%# Google Mapの表示 %>
     <%# #shopとなっている部分の記述は自身の実装に合わせて変えてください。 %>
@@ -111,7 +126,7 @@
             <div class="comment-list">
               <p>
                 <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}", class: "comment-nickname"%>:</strong>
-                <div class="asd">
+                <div class="comment-post">
                 <%= comment.comment%>
                 </div>
               </p>
@@ -150,4 +165,4 @@
   </div>
 </div>
 
-<%= render partial: 'posts/footer'%>
+<%= render partial: 'posts/footer' %>
