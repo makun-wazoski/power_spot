@@ -35,9 +35,24 @@
             <td class="detail-value"><%= l @post.created_at %></td>
           </tr>
           <tr>
+            <th class="detail-post">場所</th>
+            <td class="detail-value"><%= @post.prefecture[:name]%></td>
+          </tr>
+          <tr>
             <th class="detail-post">参考URL</th>
             <td class="detail-value"><%= raw Rinku.auto_link(@post.url, :urls, 'target="_blank" rel="noopener noreferrer"')%></td>
           </tr>
+          <tr>
+            <th class="detail-post">タグ</th>
+            <td class="detail-value">
+            <% @post.tag_list.each do |tag| %>
+            <span class="label label-primary">
+              <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
+            </span>
+              <% end %>
+            </td>
+          </tr>
+          
           <tr>
             <th class="detail-post">感想</th>
             <td class="detail-value"><%= @post.impressions %></td>
@@ -46,7 +61,62 @@
       </table>
     </div>
     <%# 投稿内容の詳細 %>
+
+    <%# 試験的にタグを配置 %>
+        
+    <%# 試験的にタグを配置 %>
       
+    <%# Google Mapの表示 %>
+    <%# #shopとなっている部分の記述は自身の実装に合わせて変えてください。 %>
+
+
+      <script type="text/javascript">
+        function initMap() {
+      // #latitude,longitudeから位置を特定
+          var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15, 
+                    center: test
+                    });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
+      
+          var contentString = '住所：<%= @post.address %>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+      
+      //  #Map上の指定した位置にピンを挿して表示する
+          var marker = new google.maps.Marker({
+                        position:test,
+                        map: map,
+                        title: contentString
+                      });
+      
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        }
+      </script>
+
+      <%# #以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください %>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
+      </script>
+
+      <%# #表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
+      <%# <style type="text/css">
+        #map { height: 200px;
+              width: 70%;
+              justify-content: center;
+              }
+      </style> %>
+      
+      <%# #mapの表示 %>
+      <div id="map"></div>
+    
+    <%# Google Mapの表示 %>
+
     <%# コメント %>
     <div class="comment-box">
       <div class="comments">
@@ -56,7 +126,7 @@
             <div class="comment-list">
               <p>
                 <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}", class: "comment-nickname"%>:</strong>
-                <div class="asd">
+                <div class="comment-post">
                 <%= comment.comment%>
                 </div>
               </p>
@@ -95,4 +165,4 @@
   </div>
 </div>
 
-<%= render partial: 'posts/footer'%>
+<%= render partial: 'posts/footer' %>

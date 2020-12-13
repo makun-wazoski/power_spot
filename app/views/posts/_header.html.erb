@@ -7,7 +7,7 @@
       <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
         <%= f.text_field :keyword, class: "search-input", placeholder: 'キーワードから探す' %>
         <button class="search-button">
-          <%= image_tag "search.png", class:"search-icon" %>
+          <%# <%= image_tag "search.png", class:"search-icon" %> %>
         </button>
       <% end %>
       </div>

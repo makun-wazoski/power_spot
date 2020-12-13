@@ -63,6 +63,13 @@ gem 'image_processing', '~>1.2'
 gem 'devise'
 gem 'rinku'
 gem 'rails-i18n'
+gem 'active_hash'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'gon'
+gem 'dotenv-rails'
+gem 'acts-as-taggable-on'
+gem 'jquery-ui-rails'
 gem 'aws-sdk-s3', require: false
 
 group :production do

@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @nickname = @user.nickname
-    @posts = @user.posts
+    @posts = Post.includes(:user).order('created_at DESC')
+    # @posts = @user.posts
   end
 
   def edit

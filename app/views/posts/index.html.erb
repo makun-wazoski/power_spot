@@ -1,22 +1,23 @@
 <%=render partial: 'header'%>
 <div class="main">
-  <ul class='post-lists'>
-  <% @posts.each do |post| %>
-    <li>
-    <%# ↓詳細画面へ飛ぶ記述、post_path(post.id)はルーティングの設定で出現 %>
-      <%= link_to post_path(post.id), method: :get do %>
-        <div class='post-img-content'>
-          <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
-        </div>
+  <h4 class="tag-saerch-title">“タグ検索”</h4>
+  <div class="tag-search">
+    <% if @tags.present? %>
+      <% @tags.each do |tag| %>
+        <%= link_to "#{tag.name}#{tag.taggings_count}", posts_path(tag_name: tag.name), class: "badge badge-light mr-1 p-2" %>
+      <% end %>
+    <% else %>
+      <p>登録されているタグはありません</P>
+    <% end %>
+  </div>
+    <%# <% @tags.tag_list.each do |list| %> 
+      <%# <span class="label label-primary"> %>
+        <%# <%= link_to list.tag_name, posts_path(tag_id: list.id), class: "badge badge-light mr-1 p-2" %> 
+      <%# </span> %>
+    <%# <% end %> 
 
-        <div class='post-info'>
-          <h3 class='post-name'>
-            <%= post.name %>
-          </h3>
-        </div>
-      <%end%>
-    </li>
-  <% end %>
+  <ul class='post-lists'>
+    <%=post_lists(@posts)%>
   </ul>
 </div>
 <%=render partial: 'footer'%>

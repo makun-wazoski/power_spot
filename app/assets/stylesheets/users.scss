@@ -2,15 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#container {
+height: 100hv;
+}
+
 .my-posts {
   display: flex;
-  align-items: center;
+  width: 100%;
+  // align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .mypost-lists {
   width: 100vw;
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   justify-content: center;
-  text-align: center;
+  // text-align: center;
+}
+
+.mypost-lists>.list {
+  width: 37vh;
+  // padding: 2vw;
+  background-color: #FFF;
+  border: 1px solid #3c9796;
 }

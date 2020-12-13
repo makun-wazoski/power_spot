@@ -1,0 +1,19 @@
+<li>
+    <%# ↓詳細画面へ飛ぶ記述、post_path(post.id)はルーティングの設定で出現 %>
+      <%= link_to post_path(post.id), method: :get do %>
+        <div class='post-img-content'>
+          <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
+        </div>
+
+        <div class='post-info'>
+          <h3 class='post-name'>
+            <%= post.name %>
+          </h3>
+        </div>
+      <%end%>
+      <% post.tag_list.each do |tag| %>
+        <span class="label label-primary">
+          <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
+        </span>
+      <% end %>
+    </li>

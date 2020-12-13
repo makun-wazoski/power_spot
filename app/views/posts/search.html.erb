@@ -1,22 +1,7 @@
 <%=render partial: 'header'%>
 <div class="contents">
   <ul class='post-lists'>
-  <% @posts.each do |post| %>
-    <li class="list">
-    <%# ↓詳細画面へ飛ぶ記述、post_path(post.id)はルーティングの設定で出現 %>
-      <%= link_to post_path(post.id), method: :get do %>
-        <div class='post-img-content'>
-          <%= image_tag post.image, class: 'post-img' if post.image.attached?%>
-        </div>
-
-        <div class='post-info'>
-          <h3 class='post-name'>
-            <%= post.name %>
-          </h3>
-        </div>
-      <%end%>
-    </li>
-  <% end %>
+  <%=post_lists(@posts)%>
   </ul>
 </div>
 <%= render partial: 'posts/footer'%>
