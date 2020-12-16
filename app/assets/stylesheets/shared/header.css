@@ -5,11 +5,28 @@
 header {
   height: 100%;
   width: 100%;
+  /* background-color: blanchedalmond; */
 }
 
 .top-header-main {
   display: flex;
+  background-image: url("../header-bgi.png");      /* 画像のURLを指定       */
+  background-size:cover;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
 }
+
+.title-log-ps {
+  margin-left: 40px;
+  width: 160px;
+  height: 120px;
+}
+
+/* .title-log-ps a {
+  font-family: 'Luminari';
+  color: coral;
+  text-decoration:none;
+} */
 
 .header-bar {
   width: 100%;
@@ -59,4 +76,20 @@ header {
   display: flex;
   padding: 0;
   margin-bottom: 0;
+  /* text-decoration: none; */
 }
+
+.user-nav li a{
+  color:#fd7e14;
+  text-decoration: none;
+}
+
+/* .user-nav li a:hover{
+  color: #ff0000;
+} */
+/* a {
+  text-decoration: none;
+
+} */
+/* li>a {
+} */

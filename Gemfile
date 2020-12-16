@@ -69,7 +69,7 @@ gem 'gmaps4rails'
 gem 'gon'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on'
-gem 'jquery-ui-rails'
+
 gem 'aws-sdk-s3', require: false
 
 group :production do

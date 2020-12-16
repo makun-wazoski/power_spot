@@ -1,11 +1,35 @@
 .main {
   height: 100hv;
-  /* background-color: aquamarine; */
+  width: 100vw;
+  /* background-color: bisque; */
+
+  /* background: url('hikari.jpeg') no-repeat 350px 250px ; */
 }
+
+.crevice-contents {
+  width:100%;                                   /* 横幅のサイズを指定    */
+  height:200px;
+  /* background-image: url("../hikari.jpg");      画像のURLを指定       */
+  /* background-repeat:  no-repeat; */
+  /* background-attachment: fixed;        */
+  
+}
+
+.hikari-bgi{
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  background-image: url("../header-bgi.png");       
+  background-repeat:  no-repeat;
+  background-size:cover;
+  background-attachment: fixed;                  
+}
+
 
 .post-lists {
   padding: 0;
   margin-top: 40px;
+  
   /* text-align: center; */
   /* width: 100%; */
 }
@@ -13,10 +37,11 @@
 .post-lists li {
   /* border: 1px solid #3c9796; */
   /* width: calc((100% - 40px) / 5); */
+  background-color: #fff;
   border-radius: 10px 10px 10px 10px;
   margin: 0 20px 40px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-  /* width: 100%; */
+
 }
 
 .post-info {

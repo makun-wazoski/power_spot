@@ -19,16 +19,35 @@
    margin: 0;
  } */
 
- a {
-   text-decoration: none;
+ body {
+  display: none;
+  text-decoration: none;
+}
+
+// button {
+//   width: 40px;
+//   height: 40px;
+//   background-color: coral;
+//   border-radius: 50%;
+//   border: none;
+//   cursor: pointer;
+// }
+
+//  a {
+//    text-decoration: none;
+//   }
+  
+  li {
+    list-style: none;
+    text-decoration: none;
  }
 
- li {
-   list-style: none;
- }
+ ul {
+  text-decoration: none;
+}
 
  * {
-  font-family: 'Koku-Mincho-Regular','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'; 
+  font-family: 'Koku-Mincho-Regular','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', 'Luminari'; 
   color: rgb(100, 100, 100);
+  // text-decoration: none;
   }
-

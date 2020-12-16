@@ -1,32 +1,35 @@
 <%=render partial: 'header'%>
 <div class="main">
-  <h4 class="tag-saerch-title">“タグ検索”</h4>
-  <div class="tag-search">
-    <% if @tags.present? %>
-      <% @tags.each do |tag| %>
-        <%= link_to "#{tag.name}#{tag.taggings_count}", posts_path(tag_name: tag.name), class: "badge badge-light mr-1 p-2" %>
+  <div class="crevice-contents">
+    <h4 class="tag-saerch-title">“タグ検索”</h4>
+    <div class="tag-search">
+      <% if @tags.present? %>
+        <% @tags.each do |tag| %>
+          <%= link_to "#{tag.name}#{tag.taggings_count}", posts_path(tag_name: tag.name), class: "badge badge-light mr-1 p-2" %>
+        <% end %>
+      <% else %>
+        <p>登録されているタグはありません</P>
       <% end %>
-    <% else %>
-      <p>登録されているタグはありません</P>
-    <% end %>
-  </div>
+    </div>
 
-  <p>テスト</p>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("p").text("成功！！");
-  });
-</script>
+    <p>テスト</p>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $("p").text("成功！！");
+        });
+      </script>
+  </div>
 
     <%# <% @tags.tag_list.each do |list| %> 
       <%# <span class="label label-primary"> %>
         <%# <%= link_to list.tag_name, posts_path(tag_id: list.id), class: "badge badge-light mr-1 p-2" %> 
       <%# </span> %>
     <%# <% end %> 
-
-  <ul class='post-lists'>
-    <%=post_lists(@posts)%>
-  </ul>
+  <div class="hikari-bgi">
+    <ul class='post-lists'>
+      <%=post_lists(@posts)%>
+    </ul>
+  </div>
 </div>
 <%=render partial: 'footer'%>
 

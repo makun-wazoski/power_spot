@@ -9,21 +9,26 @@ require("@rails/activestorage").start()
 require("channels")
 // require ("jquery.jscroll.min.js")
 require ("../underscore")
-// require ("..gmaps/google")
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
-require ('jquery')
-// require ("../jquery_ujs")
-// require ("../jquery-ui")
-require ('tag-it')
-// require ('../ta-it.mi')
-// require ("../require_tree .")
-// = require_tree .
 
+// require jquery
+// require jquery_ujs
+// require jquery-ui
+require ('jquery')
+// require ('jquery_ujs')
+require ('jquery-ui')
+require ('../tag-it')
+require ('../tag-it.min')
+require ('load')
+// = require_tree .
+// require_tree .
+// require ("../require_tree .")
+
+// import Rails from '@rails/ujs';
+// Rails.start();
 import '@fortawesome/fontawesome-free/js/all';
 // import '../stylesheets/application';
 // import '../src/application.scss'
+// import '../stylesheets/application.scss'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
