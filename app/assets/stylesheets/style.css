@@ -1,0 +1,137 @@
+/* body {
+  } */
+
+/* .contents { */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* padding: 10vh 0;background-image: url(post.image) */
+/* } */
+
+
+
+/* .post-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF; */
+  /* border: 1px solid #3c9796; */
+/* } */
+
+
+/* .post-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+} */
+
+/* 一覧画面表示 */
+.post-lists {
+  /* width: 100vw; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
+  padding: 0;
+}
+/* 一覧画面表示 */
+
+/* 投稿表示内容 */
+.post-img {
+  width: 43vh;
+  height: 40vh;
+  border-radius: 50%;
+  transition-duration: .8s;
+}
+
+.post-img:hover {
+  width: 43vh;
+  height: 40vh;
+  border-radius: 5px;
+}
+
+.post-lists li {
+  /* height: 60vh; */
+
+  width: 20vw;
+  background-color: #fff;
+  border-radius: 10px 10px 10px 10px;
+  margin: 0 40px 80px;
+  box-shadow: 0 10px 25px 0 rgba(253, 251, 115, 0.445);
+  /* box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5); */
+  
+}
+
+.list a {
+  color: rgb(100, 100, 100);
+}
+
+.post-info {
+  background-color: #FFF;
+  color: black;
+  padding: 15px;
+  /* display: inline-flex;
+  flex-direction: row; */
+  border-radius: 0 0 5px 5px;
+  /* border: 1px solid #3c9796; */
+}
+
+.post-info-contents {
+  height: 39px;
+ 
+  /* border-bottom: 0 0 5px 5px; */
+  
+  margin: 0 0 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, .1);
+}
+
+.post-name {
+  
+  /* font-size: 2.5vh; */
+}
+
+#dependence-tag {
+  margin-top: 0;
+}
+
+.label {
+  /* margin-bottom: 10px; */
+}
+
+.badge {
+  display: block;
+  /* height: 20px;
+  padding: 0; */
+}
+/* .post-name>a{
+  text-decoration: none;
+} */
+/* 投稿表示内容 */
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  color: #696969;   /*文字の色を変える*/
+  background: rgba(255, 255, 255, 0.5);
+  border: none;     /* 枠線をなくす */
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background-color: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /* 角を丸くする */
+}
+
+/* .pagenation.active {
+  color: green;
+} */
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  transition-duration: .8s;
+  border-radius: 15px;    /*角を丸くする*/
+}
+/*ページネーション自体のデザイン*/
+
+
+.footer-contents {
+  height: 100%;
+}

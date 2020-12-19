@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one_attached :image, dependent: :destroy
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
 
   with_options presence: true do
     validates :nickname, length: { maximum: 20 }
@@ -15,4 +17,5 @@ class User < ApplicationRecord
   end
   validates :favorite_spot, presence: false, length: { maximum: 200 }
   validates :introduction, presence: false, length: { maximum: 1000 }
+  
 end

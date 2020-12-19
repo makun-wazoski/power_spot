@@ -15,14 +15,12 @@
  */
 
 
- /* body {
-   margin: 0;
- } */
-
+//  画面遷移ふわっとさせるのに必要
  body {
   display: none;
-  text-decoration: none;
+  // text-decoration: none;
 }
+//  画面遷移ふわっとさせるのに必要
 
 // button {
 //   width: 40px;
@@ -33,21 +31,12 @@
 //   cursor: pointer;
 // }
 
-//  a {
-//    text-decoration: none;
-//   }
-  
-  li {
-    list-style: none;
-    text-decoration: none;
- }
-
- ul {
-  text-decoration: none;
-}
+// a:link{
+//   text-emphasis: none;
+// }
 
  * {
-  font-family: 'Koku-Mincho-Regular','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', 'Luminari'; 
+  font-family: 'Koku-Mincho-Regular','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', 'Luminari', 'Hannotate TC','Wawati SC',sans-serif; 
   color: rgb(100, 100, 100);
   // text-decoration: none;
   }

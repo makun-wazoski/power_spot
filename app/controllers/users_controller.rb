@@ -8,8 +8,12 @@ class UsersController < ApplicationController
 
   def show
     @nickname = @user.nickname
-    @posts = Post.includes(:user).order('created_at DESC')
-    # @posts = @user.posts
+
+    # @postsに自分の投稿を入れている
+    @posts = @user.posts
+
+    # ここでの@postsは上記の@postsに代入された自分の投稿だけを照準で表示させることを代入している。
+    @posts = @posts.includes(:user).order('created_at DESC').page(params[:page]).per(6)
   end
 
   def edit
@@ -32,7 +36,7 @@ class UsersController < ApplicationController
 
   def user_params
     # binding.pry
-    params.require(:user).permit(:image, :email, :nickname, :introduction, :favorite_spot)
+    params.require(:user).permit(:image, :email, :nickname, :introduction, :tag_list)
   end
 
   def set_user

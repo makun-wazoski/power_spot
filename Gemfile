@@ -68,6 +68,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'gon'
 gem 'dotenv-rails'
+gem 'kaminari'
 gem 'acts-as-taggable-on'
 
 gem 'aws-sdk-s3', require: false

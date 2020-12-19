@@ -3,13 +3,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:user).order('created_at DESC')
+    # 投稿一覧表示
+    @posts = Post.includes(:user).order('created_at DESC').page(params[:page]).per(6)
+
+    # 検索一覧表示（同じタグカウント）
     if params[:tag_name]
-      @posts = Post.tagged_with(params[:tag_name])
-    #   # .page(params[:page])
+      @posts = Post.tagged_with(params[:tag_name]).page(params[:page]).per(6)
     end
     @tags = Post.tag_counts_on(:tags)
-    # @tag_lists = Tag.all
+    # 検索一覧表示（同じタグカウント）
   end
 
   def new
@@ -34,7 +36,7 @@ class PostsController < ApplicationController
     @user = @post.user
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
-    @post_tags = @post.tags 
+    # @post_tags = @post.tags 
   end
 
   def destroy

@@ -62,20 +62,19 @@ table {
 
 tr {
   text-align: left;
-  
 }
 
 th {
-  /* border: 1px solid #3c9796; */
   width: 90px;
   padding-top: 10px;
   justify-content: left;
   line-height: 2em;
   vertical-align: top;
-
+  
 }
 
 td {
+  /* border: 1px solid #3c9796; */
   color: rgb(100, 100, 100);
   word-wrap: break-word; 
   /* word-break: break-all; */

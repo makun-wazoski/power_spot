@@ -26,10 +26,12 @@
       <%# </span> %>
     <%# <% end %> 
   <div class="hikari-bgi">
-    <ul class='post-lists'>
-      <%=post_lists(@posts)%>
-    </ul>
+    <div class="container">
+      <ul class='post-lists'>
+        <%=post_lists(@posts)%>
+      </ul>
+    <%= paginate @posts %>
+    </div>
   </div>
 </div>
 <%=render partial: 'footer'%>
-

@@ -30,8 +30,13 @@
           </div>
 
           <div class="from-group mb-4">
-            <%= f.label :favorite_spot, "お気に入りスポット", class: "form-label" %><br />
-            <%=f.text_field :favorite_spot, class: "form-control", id:"user-favorite_spot", size: "90",maxlength: "200", placeholder: "お気に入りのスポットを書く"%>
+            <%= f.label :tag_list, "お気に入りスポット", class: "form-label" %><br />
+            <%=f.text_field :tag_list, value: @user.tag_list.join(','), class: "form-control",id:"user-tag-list", maxlength: "200", placeholder: "お気に入りのスポットを追加" %>
+               <%# size: "90",maxlength: "200", placeholder: "お気に入りのスポットを書く"%>
+          <ul id="myTags"></ul>
+
+          
+        </div>
           </div>
 
         <div class="actions">

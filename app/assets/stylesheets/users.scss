@@ -2,29 +2,76 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#container {
-height: 100hv;
+// .container {
+// height: 100hv;
+// }
+
+.user-show-prof {
+  // border: 1px solid #3c9796;
+  text-align: center;
 }
 
-.my-posts {
-  display: flex;
-  width: 100%;
-  // align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+.user-prof-nickname {
+  margin: 10px 0;
 }
 
-.mypost-lists {
-  width: 100vw;
-  display: flex;
-  // flex-wrap: wrap;
-  justify-content: center;
-  // text-align: center;
+.user-img {
+ height: 250px;
+  width: 250px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
-.mypost-lists>.list {
-  width: 37vh;
-  // padding: 2vw;
-  background-color: #FFF;
-  border: 1px solid #3c9796;
+.user-icon {
+  margin: 0 auto;
 }
+
+.user-prof-detail {
+  padding: 0;
+}
+
+.prof-introduction-detail {
+  // border: 1px solid #3c9796;
+  margin: 0 auto;
+  width: 71vw;
+  // text-align: left;
+  word-wrap: break-word; 
+}
+
+// .my-posts {
+//   display: flex;
+//   width: 100%;
+//   // align-items: center;
+//   flex-wrap: wrap;
+//   justify-content: center;
+// }
+
+
+// .mypost-lists {
+//   width: 100vw;
+//   display: flex;
+//   // flex-wrap: wrap;
+//   justify-content: center;
+//   // text-align: center;
+// }
+
+// .mypost-lists>.list {
+//   width: 37vh;
+//   // padding: 2vw;
+//   background-color: #FFF;
+//   // border: 1px solid #3c9796;
+//   background-color: #fff;
+//   border-radius: 10px 10px 10px 10px;
+//   margin: 0 20px 40px;
+//   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+// }
+
+// .post-lists {
+//   width: 100vw;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   align-items:center;
+// }
+
+

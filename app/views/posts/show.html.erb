@@ -28,7 +28,7 @@
         <tbody>
           <tr>
             <th class="detail-post">記録者</th>
-            <td class="detail-value"><%= link_to @post.user.nickname, user_path(@user.id), method: :get %></td>
+            <td class="detail-value"><%= link_to @post.user.nickname, user_path(@post.user.id), method: :get %></td>
           </tr>
           <tr>
             <th class="detail-post">作成日時</th>
@@ -55,7 +55,7 @@
           
           <tr>
             <th class="detail-post">感想</th>
-            <td class="detail-value"><%= @post.impressions %></td>
+            <td class="detail-value"><%=safe_join(@post.impressions.split("\n"),tag(:br))%></td>
           </tr>
         </tbody>
       </table>
@@ -127,7 +127,7 @@
               <p>
                 <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}", class: "comment-nickname"%>:</strong>
                 <div class="comment-post">
-                <%= comment.comment%>
+                <%=safe_join(comment.comment.split("\n"),tag(:br))%>
                 </div>
               </p>
               <div class="comment-destroy">
