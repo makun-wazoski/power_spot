@@ -21,7 +21,15 @@
       <% end %>
     </div>
     <%# ログインしているユーザと投稿ユーザが同一人物である時、投稿編集と削除を表示させる%>
-    
+
+    <%# いいねした時と外した時の記述、別ファイル詳細あり %>
+    <div class="like-contents", id="post_<%= @post.id%>">
+
+    <%# いいね表記 %>
+      <%= render 'likes/post', post: @post %>
+    </div>
+
+
     <%# 投稿内容の詳細 %>
     <div class="detail-contents">
       <table class="detail-table">

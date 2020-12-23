@@ -31,11 +31,17 @@
 }
 
 .post-detail-edit {
+  /* border: 1px solid #3c9796; */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+
+/* .qwe{
+  /* border: 1px solid #3c9796; */
+
+/* } */ */
 
 .post-edit-btn {
   color:rgb(100, 100, 100);
@@ -141,4 +147,5 @@ padding-right: 20px;
   height: 25px;
   width: 20px;
 }
+
 

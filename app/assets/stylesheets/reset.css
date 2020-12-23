@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+* {
+  font-family: 'Koku-Mincho-Regular','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', 'Luminari', 'Hannotate TC','Wawati SC',sans-serif; 
+  color: rgb(100, 100, 100);
+  }
+
+
 /* Remove default margin */
 body,
 h1,
@@ -19,12 +25,8 @@ dd {
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-}
-
-/* ul {
-  text-decoration: none;
+/* a {
+  text-decoration: none !important;
 } */
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -43,7 +45,6 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  /* text-decoration: none; */
 }
 
 /* A elements that don't have a class get default styles */

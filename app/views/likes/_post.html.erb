@@ -1,0 +1,12 @@
+
+<% if current_user.liked_by?(@post.id) %>
+  <%= link_to post_destroy_like_path(@post), class: "text-decoration-none like-link", method: :DELETE, remote: true do %>
+    <i class="fas fa-heart unlike-btn"></i>
+  <% end %>
+  <%= @post.likes.count %>
+<% else %>
+  <%= link_to post_create_like_path(@post), class: "text-decoration-none like-link", method: :POST, remote: true do %>
+    <i class="fas fa-heart faa-bounce animated-hover like-btn"></i>
+  <% end %>
+  <%= @post.likes.count %>
+<% end %>

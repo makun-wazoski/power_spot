@@ -70,6 +70,7 @@ gem 'gon'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'acts-as-taggable-on'
+gem 'font-awesome-sass'
 
 gem 'aws-sdk-s3', require: false
 

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one_attached :image, dependent: :destroy
   acts_as_taggable
   acts_as_taggable_on :skills, :interests
@@ -18,4 +19,7 @@ class User < ApplicationRecord
   validates :favorite_spot, presence: false, length: { maximum: 200 }
   validates :introduction, presence: false, length: { maximum: 1000 }
   
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
+  end
 end
