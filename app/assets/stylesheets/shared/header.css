@@ -10,7 +10,7 @@ header {
 
 .top-header-main {
   display: flex;
-  background-image: image-url("../header-bgi.png");      /* 画像のURLを指定       */
+  background-image: url("../header-bgi.png");      /* 画像のURLを指定       */
   background-size:cover;
   background-repeat:  no-repeat;
   background-attachment: fixed;
