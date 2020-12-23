@@ -84,11 +84,13 @@ td {
   padding-top: 10px;
 }
 
+/* Gmap api */
 #map {
   height: 200px;
   width: 70%;
   margin: 0 auto;
 }
+/* Gmap api */
 
 .comment-box {
   margin: 0 auto;

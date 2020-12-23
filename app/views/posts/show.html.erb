@@ -69,51 +69,51 @@
       </table>
     </div>
     <%# 投稿内容の詳細 %>
-
-    <%# 試験的にタグを配置 %>
-        
-    <%# 試験的にタグを配置 %>
       
-    <%# Google Mapの表示 %>
-    <%# #shopとなっている部分の記述は自身の実装に合わせて変えてください。 %>
+    <%# Google Mapの表示するための記述 %>
+      <script>
+        let map
+        function initMap(){
+          geocoder = new google.maps.Geocoder()
 
-
-      <script type="text/javascript">
-        function initMap() {
-      // #latitude,longitudeから位置を特定
-          var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
-          var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 15, 
-                    center: test
-                    });
-          var transitLayer = new google.maps.TransitLayer();
-          transitLayer.setMap(map);
-      
-          var contentString = '住所：<%= @post.address %>';
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: <%= @post.latitude %>, lng:<%= @post.longitude %>},
+            zoom: 12,
           });
-      
-      //  #Map上の指定した位置にピンを挿して表示する
-          var marker = new google.maps.Marker({
-                        position:test,
-                        map: map,
-                        title: contentString
-                      });
-      
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
+
+          marker = new google.maps.Marker({
+            position:  {lat: <%= @post.latitude %>, lng:<%= @post.longitude %>},
+            map: map
           });
         }
-      </script>
+        // ここから追加 
+        let geocoder
+
+        function codeAddress(){
+          let inputAddress = document.getElementById('address').value;
+
+          geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+            if (status == 'OK') {
+              map.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: map,
+                  position: results[0].geometry.location
+              });
+            } else {
+              alert('該当する結果がありませんでした：' + status);
+            }
+          });   
+        }
+        // ここまで追加 
+        </script>
+    <%# Google Mapの表示するための記述 %>
 
       <%# #↓もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
       <%# #↑もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
 
-      <%# #mapの表示 %>
+    <%# 実際のGoogle mapの表示 %>
       <div id="map"></div>
-    
-    <%# Google Mapの表示 %>
+    <%# 実際のGoogle Mapの表示 %>
 
     <%# コメント %>
     <div class="comment-box">
@@ -160,6 +160,7 @@
       </p>
     </div>
     <%# コメント %>
+    
   </div>
 </div>
 
