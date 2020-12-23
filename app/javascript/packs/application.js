@@ -12,7 +12,7 @@ require ("../underscore")
 require ('jquery')
 require ('jquery-ui')
 require ('load')
-// = require_tree .
+// require_tree .
 
 
 
