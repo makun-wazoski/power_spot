@@ -29,6 +29,7 @@ require ('../tag-it.min')
 // import Rails from '@rails/ujs';
 // Rails.start();
 // import '@fortawesome/fontawesome-free/js/all';
+// import "../stylesheets/reset"
 // import '../stylesheets/application';
 // import '../src/application.scss'
 // import '../stylesheets/application.scss'

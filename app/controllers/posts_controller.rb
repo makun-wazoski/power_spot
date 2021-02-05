@@ -57,6 +57,11 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword]).order('created_at DESC')
+    if params[:tag_name]
+      @posts = Post.tagged_with(params[:tag_name])
+    end
+    @tags = Post.tag_counts_on(:tags)
+    @posts = @posts.includes(:user).order('created_at DESC').page(params[:page]).per(6)
   end
 
   # def tags
