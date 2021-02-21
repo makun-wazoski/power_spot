@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: power_spot_production
-  username: power_spot
-  password: <%= ENV['POWER_SPOT_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
