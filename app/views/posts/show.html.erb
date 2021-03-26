@@ -25,8 +25,12 @@
     <%# いいねした時と外した時の記述、別ファイル詳細あり %>
     <div class="like-contents", id="post_<%= @post.id%>">
 
+    <%# 未ログインユーザーは「いいね」できないように表示しないよう設定 %>
+    <% if user_signed_in? && current_user.id %>
+
     <%# いいね表記 %>
       <%= render 'likes/post', post: @post %>
+    <% end %>
     </div>
 
 
