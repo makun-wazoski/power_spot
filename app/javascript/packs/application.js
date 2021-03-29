@@ -19,8 +19,6 @@ require ('load')
 // 過去に作用させようとして共同がうまく行かなかった記述
 require ('../tag-it')
 require ('../tag-it.min')
-// require jquery_ujs
-// require jquery-ui
 // 過去に作用させようとして共同がうまく行かなかった記述
 
 

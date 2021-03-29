@@ -13,8 +13,6 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post)
     else
-      # flash.now[:alert] = "Comment failed"
-      # @comment = Comment.new
       @user = @post.user
       # @comment= Comment.new
       @comments = @post.comments.includes(:user)

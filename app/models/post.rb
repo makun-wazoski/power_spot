@@ -4,8 +4,6 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :comments
   has_one_attached :image, dependent: :destroy
   has_many :likes, dependent: :destroy
-  # has_one :map, dependent: :destroy
-  # accepts_nested_attributes_for :map
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -1,7 +1,6 @@
 header {
   height: 100%;
   width: 100%;
-  /* background-color: blanchedalmond; */
 }
 
 .top-header-main {
@@ -18,12 +17,6 @@ header {
   height: 120px;
 }
 
-/* .title-log-ps a {
-  font-family: 'Luminari';
-  color: coral;
-  text-decoration:none;
-} */
-
 .header-bar {
   width: 100%;
   display: flex;
@@ -34,7 +27,6 @@ header {
 }
 
 .search-bar-contents {
-  // width: 100%;
   margin-right: 30px;
   box-sizing: border-box;
 }
@@ -60,17 +52,6 @@ header {
   cursor: pointer;
 }
 
-.fa-search {
-  // width: 100%;
-}
-
-
-
-.fa-search {
-  // width: 100%;
-  // display: inline-block;
-}
-
 .header-user-nav {
   display: flex;
 }
@@ -80,24 +61,12 @@ header {
 }
 
 .user-nav {
-  /* border: 1px solid #3c9796; */
   display: flex;
   padding: 0;
   margin-bottom: 0;
-  /* text-decoration: none; */
 }
 
 .user-nav li a{
   color:#fd7e14;
   text-decoration: none;
 }
-
-/* .user-nav li a:hover{
-  color: #ff0000;
-} */
-/* a {
-  text-decoration: none;
-
-} */
-/* li>a {
-} */
