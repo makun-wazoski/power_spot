@@ -19,7 +19,7 @@ Power-Spot
 旅の計画やスピリチュアル体験の参考に利用できる内容になっています。
   
 ## 使用技術
-HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub /
+HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub / AWS(EC2,S3) / Nginx / Unicorn 
   
 ## 作品の背景
 パワースポットの記録や情報収集に特化したSNSを作りたいと思い作成したアプリです。  
@@ -45,7 +45,7 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 全体的に柔らかい印象を持たせたいということから下記を工夫いたしました。  
   
 - フォントを刻明朝（Webフォント）にすることによって優しい雰囲気にしました。  
-- トップページやマイページの画像の表示を丸くしました。カーソルを合わせると広がります。丸み→広がりとすることでオープンで明るい印象を狙った展開を作りました。
+- トップページの投稿画像一覧の表示を丸くしました。カーソルを合わせると広がります。丸み→広がりとすることでオープンで明るい印象を狙った展開を作りました。
   
 ##  機能一覧
 #### ユーザー機能
@@ -63,12 +63,17 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 - 投稿一覧
   
 #### 検索機能
-- スポット名の名前が検索対象  
+- スポット名の名前が検索対象
+- 検索タグで投稿を検索  
+
+#### GoogleMap表示機能（GoogleMap API, geocoder）
+- 住所入力にて投稿後表示
+
+#### いいね機能(ajax)
+- 投稿にいいねができる
   
 ## 実装予定の機能
-- 検索タグ機能
 - DMメッセージ機能
-- GoogleMAPのAPI
 - ユーザー同士のコミュケーションを取れる機能
   
 ## DB設計
