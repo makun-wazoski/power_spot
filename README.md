@@ -8,7 +8,7 @@ Things you may want to cover:
 
 ## アプリケーション名
 Power-Spot  
-  <img width="1439" alt="写真が見当たりません" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
+  <img width="1439" alt="画像が見当たりません" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
 
   
   
@@ -155,7 +155,7 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 
   
 ## ER図
-<img width="792" alt="スクリーンショット 2020-11-17 11 02 42" src="https://user-images.githubusercontent.com/69196800/99335730-7cf40500-28c4-11eb-826c-90e4b113bb65.png">
+<img width="792" alt="画像が見当たりません" src="https://i.gyazo.com/35379aaed2eda6c0a2222bbd2f534efd.png">
 
 
 * Ruby version
