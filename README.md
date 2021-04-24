@@ -8,7 +8,7 @@ Things you may want to cover:
 
 ## アプリケーション名
 Power-Spot  
-  <img width="1439" alt="スクリーンショット 2020-11-16 20 14 32" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
+  <img width="1439" alt="写真が見当たりません" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
 
   
   
@@ -19,7 +19,7 @@ Power-Spot
 旅の計画やスピリチュアル体験の参考に利用できる内容になっています。
   
 ## 使用技術
-HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub / AWS(EC2,S3) / Nginx / Unicorn 
+HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub / AWS(EC2,S3,VPC) / Nginx / Unicorn / Capistrano
   
 ## 作品の背景
 パワースポットの記録や情報収集に特化したSNSを作りたいと思い作成したアプリです。  
