@@ -89,35 +89,70 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 | ---------------  | ------ | ----------- |
 | image            | string |             |
 | introduction     | text   |             |
-| favorite_spot    | string |             |
+| favorite_spot    | string | null: false |
 ### Association
 - has_many :posts
 - has_many :comments
 - has_one_attached :image
+- has_many :likes
 
 
 ### postsテーブル
 | Column           | Type   | Options     |
 | ---------------  | ------ | ----------- |
 | name             | string | null: false |
-| url              | text   |             |
-| impressions      | text   |             |
+| url              | text   | null: false |
+| impressions      | text   | null: false |
 | user             | references | null: false |
+### add_column
+| Column           | Type   | Options     |
+| ---------------  | ------ | ----------- |
+| perfecture_id    | integer | null: false |
+| address          | string  |             |
+| latitude         | float   |             |
+| longitude        | float   |             |
 ### Association
 - belongs_to :user
 - has_many :comments
 - has_one_attached :image
+- has_many :likes
 
 
 ### commentsテーブル
 | Column           | Type   | Options     |
 | ---------------  | ------ | ----------- |
 | comment          | text   | null: false |
-| post             | references | null: false |
-| user             | references | null: false |
+| post_id          | integer | null: false |
+| user_id          | integer | null: false |
 ### Association
 - belongs_to :post
 - belongs_to :user
+
+
+### likesテーブル
+| Column           | Type   | Options     |
+| ---------------  | ------ | ----------- |
+| post_id          | integer | null: false |
+| user_id          | integer | null: false |
+### Association
+- belongs_to :post
+- belongs_to :user
+
+
+### taggingsテーブル
+| Column           | Type   | Options     |
+| ---------------  | ------ | ----------- |
+| tag_id           | integer |            |
+| taggable_type    | varchar |            |
+| taggable_id      | integer |            |
+
+
+### tagsテーブル
+| Column           | Type   | Options     |
+| ---------------  | ------ | ----------- |
+| tag_id           | integer |            |
+| name             | string |            |
+
   
 ## ER図
 <img width="792" alt="スクリーンショット 2020-11-17 11 02 42" src="https://user-images.githubusercontent.com/69196800/99335730-7cf40500-28c4-11eb-826c-90e4b113bb65.png">
