@@ -72,6 +72,8 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 #### いいね機能(ajax)
 - 投稿にいいねができる
   
+#### ページネーション機能
+  
 ## 実装予定の機能
 - DMメッセージ機能
 - ユーザー同士のコミュケーションを取れる機能
