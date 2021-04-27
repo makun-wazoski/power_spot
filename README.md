@@ -159,6 +159,9 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 ## ER図
 <img width="792" alt="画像が見当たりません" src="https://i.gyazo.com/35379aaed2eda6c0a2222bbd2f534efd.png">
 
+## インフラ構成図
+<img width="792" alt="画像が見当たりません" src="https://i.gyazo.com/4f153361e248e4fd34b20eab18b984cf.png">
+
 
 * Ruby version
 
