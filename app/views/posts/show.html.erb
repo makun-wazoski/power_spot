@@ -113,6 +113,7 @@
     <%# Google Mapの表示するための記述 %>
 
       <%# #↓もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap"></script>
       <%# #↑もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
 
     <%# 実際のGoogle mapの表示 %>
