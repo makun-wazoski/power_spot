@@ -23,12 +23,23 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/v4-shims';
 // FontAwesomeの表示
 
+html {
+  height: 100%;
+}
+
 //  画面遷移ふわっとさせるのに必要
 body {
   display: none;
-  
+  height: 100%;
 }
 //  画面遷移ふわっとさせるのに必要
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;
+}
 
 // button {
   //   width: 40px;

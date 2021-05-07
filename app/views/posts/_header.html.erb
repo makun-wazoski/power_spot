@@ -21,10 +21,12 @@
           <li><%= link_to "マイページ", user_path(current_user.id), method: :get, class: "mypage" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
           <li><%=link_to "投稿する", new_post_path, class: "new-post"%></li>
+          <li><%=link_to "Top", root_path, class: "toppage"%></li>
       <%else%>
           <li><%= link_to "ログイン", new_user_session_path, class: "login" %></li>
           <li><%= link_to "新規登録", new_user_registration_path, class: "new-post"%></li>
           <li><%=link_to "投稿する", new_post_path, class: "new-post"%></li>
+          <li><%=link_to "Top", root_path, class: "toppage"%></li>
         </ul>
       <%end%>
       </div>

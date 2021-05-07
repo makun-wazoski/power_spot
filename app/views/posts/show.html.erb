@@ -1,175 +1,176 @@
-<%=render partial: 'posts/header' %>
+<div class="wrapper">
+  <%=render partial: 'posts/header' %>
+  <div class="container">
+    <div class="post-box">
+      <h2 class="post-name">
+        <%= @post.name %>
+      </h2>
 
-<div class="container">
-  <div class="post-box">
-    <h2 class="post-name">
-      <%= @post.name %>
-    </h2>
+      <%# 画像投稿 %>
+      <div class='post-img-content'>
+        <%= image_tag @post.image , class:"post-box-img" %>
+      </div>
+      <%# 画像投稿 %>
 
-    <%# 画像投稿 %>
-    <div class='post-img-content'>
-      <%= image_tag @post.image , class:"post-box-img" %>
-    </div>
-    <%# 画像投稿 %>
-
-    <%# ログインしているユーザと投稿ユーザが同一人物である時、投稿編集と削除を表示させる%>
-    <div class="post-detail-edit">
-      <% if user_signed_in? && current_user.id == @post.user_id %>
-        <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-edit-btn" %>
-        <div class='or-text'>or</div>
-        <%= link_to '削除', post_path(@post.id), method: :delete, data:{confirm: "本当に投稿を削除しますか？"}, class:'post-destroy-btn' %>
-      <% end %>
-    </div>
-    <%# ログインしているユーザと投稿ユーザが同一人物である時、投稿編集と削除を表示させる%>
-
-    <%# いいねした時と外した時の記述、別ファイル詳細あり %>
-    <div class="like-contents", id="post_<%= @post.id%>">
-
-    <%# 未ログインユーザーは「いいね」できないよう非表示設定 %>
-    <% if user_signed_in? && current_user.id %>
-
-    <%# いいね表示 %>
-      <%= render 'likes/post', post: @post %>
-    <% end %>
-    </div>
-
-
-    <%# 投稿内容の詳細 %>
-    <div class="detail-contents">
-      <table class="detail-table">
-        <tbody>
-          <tr>
-            <th class="detail-post">記録者</th>
-            <td class="detail-value"><%= link_to @post.user.nickname, user_path(@post.user.id), method: :get %></td>
-          </tr>
-          <tr>
-            <th class="detail-post">作成日時</th>
-            <td class="detail-value"><%= l @post.created_at %></td>
-          </tr>
-          <tr>
-            <th class="detail-post">場所</th>
-            <td class="detail-value"><%= @post.prefecture[:name]%></td>
-          </tr>
-          <tr>
-            <th class="detail-post">参考URL</th>
-            <td class="detail-value"><%= raw Rinku.auto_link(@post.url, :urls, 'target="_blank" rel="noopener noreferrer"')%></td>
-          </tr>
-          <tr>
-            <th class="detail-post">タグ</th>
-            <td class="detail-value">
-            <% @post.tag_list.each do |tag| %>
-            <span class="label label-primary">
-              <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
-            </span>
-              <% end %>
-            </td>
-          </tr>
-          
-          <tr>
-            <th class="detail-post">感想</th>
-            <td class="detail-value"><%=safe_join(@post.impressions.split("\n"),tag(:br))%></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <%# 投稿内容の詳細 %>
-      
-    <%# Google Mapの表示するための記述 %>
-      <script>
-        let map
-        function initMap(){
-          geocoder = new google.maps.Geocoder()
-
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: <%= @post.latitude %>, lng:<%= @post.longitude %>},
-            zoom: 12,
-          });
-
-          marker = new google.maps.Marker({
-            position:  {lat: <%= @post.latitude %>, lng:<%= @post.longitude %>},
-            map: map
-          });
-        }
-        // ここから追加 
-        let geocoder
-
-        function codeAddress(){
-          let inputAddress = document.getElementById('address').value;
-
-          geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-            if (status == 'OK') {
-              map.setCenter(results[0].geometry.location);
-              var marker = new google.maps.Marker({
-                map: map,
-                  position: results[0].geometry.location
-              });
-            } else {
-              alert('該当する結果がありませんでした：' + status);
-            }
-          });   
-        }
-
-        window.onload = function () {
-            initMap();
-        }
-        // ここまで追加 
-        </script>
-    <%# Google Mapの表示するための記述 %>
-
-      <%# #↓もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
-      <%# #↑もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
-
-    <%# 実際のGoogle mapの表示 %>
-      <div id="map"></div>
-    <%# 実際のGoogle Mapの表示 %>
-
-    <%# コメント %>
-    <div class="comment-box">
-      <div class="comments">
-        <h4>＜コメント一覧＞</h4>
-        <% if @comments%>
-          <% @comments.each do |comment|%>
-            <div class="comment-list">
-              <p>
-                <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}", class: "comment-nickname"%>:</strong>
-                <div class="comment-post">
-                <%=safe_join(comment.comment.split("\n"),tag(:br))%>
-                </div>
-              </p>
-              <div class="comment-destroy">
-                <%if user_signed_in?%>
-                  <%if comment.user_id == current_user.id%>
-                    <%=link_to post_comment_path(@post,comment), method: :delete do %>
-                      <%= image_tag "trash.png", class:"trash-box-img" %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
+      <%# ログインしているユーザと投稿ユーザが同一人物である時、投稿編集と削除を表示させる%>
+      <div class="post-detail-edit">
+        <% if user_signed_in? && current_user.id == @post.user_id %>
+          <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-edit-btn" %>
+          <div class='or-text'>or</div>
+          <%= link_to '削除', post_path(@post.id), method: :delete, data:{confirm: "本当に投稿を削除しますか？"}, class:'post-destroy-btn' %>
         <% end %>
       </div>
+      <%# ログインしているユーザと投稿ユーザが同一人物である時、投稿編集と削除を表示させる%>
 
-      <div class="comment-user">
-        <%if current_user%>
-          <%=form_with(model: [@post, @comment], url: post_comments_path(@post), local: true) do |f|%>
-          <%=render "layouts/error_messages",model: f.object %>
-            <div class="comment-content">
-              <%=f.text_area :comment,placeholder: "コメントする", size:"60×5", maxlength:"300", class:"comment-column"%>
-              <%=f.submit "送信", class: "btn btn-primary btn-lg btn-sm", id:"comment-btn" %>
-            </div>
-          <%end%>
-        <%else%>
-          <strong><p>※コメントの投稿には新規登録/ログインが必要です※</p></strong>
-        <%end%>
+      <%# いいねした時と外した時の記述、別ファイル詳細あり %>
+      <div class="like-contents", id="post_<%= @post.id%>">
+
+      <%# 未ログインユーザーは「いいね」できないよう非表示設定 %>
+      <% if user_signed_in? && current_user.id %>
+
+      <%# いいね表示 %>
+        <%= render 'likes/post', post: @post %>
+      <% end %>
       </div>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-      </p>
-    </div>
-    <%# コメント %>
-    
-  </div>
-</div>
 
-<%= render partial: 'posts/footer' %>
+
+      <%# 投稿内容の詳細 %>
+      <div class="detail-contents">
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <th class="detail-post">記録者</th>
+              <td class="detail-value"><%= link_to @post.user.nickname, user_path(@post.user.id), method: :get %></td>
+            </tr>
+            <tr>
+              <th class="detail-post">作成日時</th>
+              <td class="detail-value"><%= l @post.created_at %></td>
+            </tr>
+            <tr>
+              <th class="detail-post">場所</th>
+              <td class="detail-value"><%= @post.prefecture[:name]%></td>
+            </tr>
+            <tr>
+              <th class="detail-post">参考URL</th>
+              <td class="detail-value"><%= raw Rinku.auto_link(@post.url, :urls, 'target="_blank" rel="noopener noreferrer"')%></td>
+            </tr>
+            <tr>
+              <th class="detail-post">タグ</th>
+              <td class="detail-value">
+              <% @post.tag_list.each do |tag| %>
+              <span class="label label-primary">
+                <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
+              </span>
+                <% end %>
+              </td>
+            </tr>
+            
+            <tr>
+              <th class="detail-post">感想</th>
+              <td class="detail-value"><%=safe_join(@post.impressions.split("\n"),tag(:br))%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <%# 投稿内容の詳細 %>
+        
+      <%# Google Mapの表示するための記述 %>
+        <script>
+          let map
+          function initMap(){
+            geocoder = new google.maps.Geocoder()
+
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: <%= @post.latitude %>, lng:<%= @post.longitude %>},
+              zoom: 12,
+            });
+
+            marker = new google.maps.Marker({
+              position:  {lat: <%= @post.latitude %>, lng:<%= @post.longitude %>},
+              map: map
+            });
+          }
+          // ここから追加 
+          let geocoder
+
+          function codeAddress(){
+            let inputAddress = document.getElementById('address').value;
+
+            geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+              if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                  map: map,
+                    position: results[0].geometry.location
+                });
+              } else {
+                alert('該当する結果がありませんでした：' + status);
+              }
+            });   
+          }
+
+          window.onload = function () {
+              initMap();
+          }
+          // ここまで追加 
+          </script>
+      <%# Google Mapの表示するための記述 %>
+
+        <%# #↓もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
+        <%# #↑もともと以下には取得したYOUR_API_KEYのAPIキーを記述しいた %>
+
+      <%# 実際のGoogle mapの表示 %>
+        <div id="map"></div>
+      <%# 実際のGoogle Mapの表示 %>
+
+      <%# コメント %>
+      <div class="comment-box">
+        <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+          <% if @comments%>
+            <% @comments.each do |comment|%>
+              <div class="comment-list">
+                <p>
+                  <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}", class: "comment-nickname"%>:</strong>
+                  <div class="comment-post">
+                  <%=safe_join(comment.comment.split("\n"),tag(:br))%>
+                  </div>
+                </p>
+                <div class="comment-destroy">
+                  <%if user_signed_in?%>
+                    <%if comment.user_id == current_user.id%>
+                      <%=link_to post_comment_path(@post,comment), method: :delete do %>
+                        <%= image_tag "trash.png", class:"trash-box-img" %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="comment-user">
+          <%if current_user%>
+            <%=form_with(model: [@post, @comment], url: post_comments_path(@post), local: true) do |f|%>
+            <%=render "layouts/error_messages",model: f.object %>
+              <div class="comment-content">
+                <%=f.text_area :comment,placeholder: "コメントする", size:"60×5", maxlength:"300", class:"comment-column"%>
+                <%=f.submit "送信", class: "btn btn-primary btn-lg btn-sm", id:"comment-btn" %>
+              </div>
+            <%end%>
+          <%else%>
+            <strong><p>※コメントの投稿には新規登録/ログインが必要です※</p></strong>
+          <%end%>
+        </div>
+        <p class="comment-warn">
+          相手のことを考え丁寧なコメントを心がけましょう。
+        </p>
+      </div>
+      <%# コメント %>
+      
+    </div>
+  </div>
+
+  <%= render partial: 'posts/footer' %>
+</div>

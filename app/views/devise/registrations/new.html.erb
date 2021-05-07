@@ -36,7 +36,8 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up", class: "mt-5 btn btn-primary btn-block" %>
+          <%= f.submit "Sign up", class: "btn btn-outline-primary btn-lg btn-sm", id:"sign-up-btn" %>
+          <%=link_to 'もどる', root_path, method: :get, class: "btn btn-outline-primary btn-lg btn-sm", id:"sign-back-btn" %>
         </div>
       <% end %>
 

@@ -1,13 +1,13 @@
-.update-prf-btn {
+.actions {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-#edit-prf-btn {
+#sign-up-btn {
   width: 40%;
 }
 
-#prf-back-btn {
+#sign-back-btn {
   width: 40%;
 }

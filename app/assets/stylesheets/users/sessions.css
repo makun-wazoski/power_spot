@@ -1,13 +1,13 @@
-.update-prf-btn {
+.actions {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-#edit-prf-btn {
+#log-in-btn {
   width: 40%;
 }
 
-#prf-back-btn {
+#log-back-btn {
   width: 40%;
 }

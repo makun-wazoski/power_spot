@@ -1,53 +1,53 @@
-<%=render partial: 'posts/header' %>
+<div class="wrapper">
+  <%=render partial: 'posts/header' %>
+  <div class="container">
+    <%# <div class="user-show-main"> %>
+      <div class="user-show-prof">
+        <h3 class="user-prof-nickname">
+          <p><%= @user.nickname%>さんのマイページ</p>
+          <hr class="user-show-hr">
+        </h3>
+        <div class="user-img">
+          <%if @user.image.attached?%>
+            <%=image_tag @user.image, size:"200", class: "user-iocon" %>
+          <% else %>
+            <%= image_tag "account_def.png", alt:"user-icon", size: "200", class:"user-icon"%>
+          <% end %>
+        </div>
+        <ul class="user-prof-detail">
+          <li class="user-favorit-spot">
+          お気に入りスポット
+          <% @user.tag_list.each do |tag| %>
+            <span class="label label-primary">
+              <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
+            </span>
+          <% end %>
+          </li>
+          <li class="user-prof-introduction">
+          紹介文
+            <div class="prof-introduction-detail">
+            <%# 連続改行、段落表示記述 %>
+            <%# 紹介文が「空」のままだとエラーが出るのでnil?=trueの時を追加 %>
+              <%if @user.introduction.nil? %>
+                <%=@user.introduction%>    <%# バリデーションは無し %>
+              <% else %>
+              <%# 紹介文が「空」じゃない時は正常に反映する %>
+                <%=safe_join(@user.introduction.split("\n"),tag(:br))%>
+              <% end %>
+            <%# 連続改行、段落表示記述 %>
+            </div>
+          </li>
+        </ul>
 
-<div class="container">
-  <%# <div class="user-show-main"> %>
-    <div class="user-show-prof">
-      <h3 class="user-prof-nickname">
-        <p><%= @user.nickname%>さんのマイページ</p>
-        <hr class="user-show-hr">
-      </h3>
-      <div class="user-img">
-        <%if @user.image.attached?%>
-          <%=image_tag @user.image, size:"200", class: "user-iocon" %>
-        <% else %>
-          <%= image_tag "account_def.png", alt:"user-icon", size: "200", class:"user-icon"%>
-        <% end %>
+        <div class="edit-prof-show">
+          <% if user_signed_in? && current_user.id == @user.id %>
+          <%= link_to "プロフィールを編集", edit_user_path(current_user.id), method: :get %>
+          <% end %>
+        </div>
+        
+          <p><%= @nickname %>さんの投稿一覧</p>
       </div>
-      <ul class="user-prof-detail">
-        <li class="user-favorit-spot">
-        お気に入りスポット
-        <% @user.tag_list.each do |tag| %>
-          <span class="label label-primary">
-            <%= link_to tag, posts_path(tag_name: tag), class: "badge badge-light mr-1 p-2" %>
-          </span>
-        <% end %>
-        </li>
-        <li class="user-prof-introduction">
-        紹介文
-          <div class="prof-introduction-detail">
-          <%# 連続改行、段落表示記述 %>
-          <%# 紹介文が「空」のままだとエラーが出るのでnil?=trueの時を追加 %>
-            <%if @user.introduction.nil? %>
-              <%=@user.introduction%>    <%# バリデーションは無し %>
-            <% else %>
-            <%# 紹介文が「空」じゃない時は正常に反映する %>
-              <%=safe_join(@user.introduction.split("\n"),tag(:br))%>
-            <% end %>
-          <%# 連続改行、段落表示記述 %>
-          </div>
-        </li>
-      </ul>
-
-      <div class="edit-prof-show">
-        <% if user_signed_in? && current_user.id == @user.id %>
-        <%= link_to "プロフィールを編集", edit_user_path(current_user.id), method: :get %>
-        <% end %>
-      </div>
-      
-        <p><%= @nickname %>さんの投稿一覧</p>
-    </div>
-<%# </div> %>
+  <%# </div> %>
       <div class="my-posts">
         <ul class='post-lists'>
           <% @posts.each do |post| %>
@@ -76,10 +76,11 @@
                   </div>
                 </div>
             </li>
-        <%end%>
-          </ul>
+          <%end%>
+        </ul>
       </div>
-    <%# </div> %>
+      <%# </div> %>
     <%= paginate @posts %>
+  </div>
+  <%= render partial: 'posts/footer'%>
 </div>
-<%= render partial: 'posts/footer'%>

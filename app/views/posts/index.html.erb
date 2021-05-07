@@ -1,25 +1,27 @@
-<%=render partial: 'header'%>
-<div class="main">
-  <div class="crevice-contents">
-    <h4 class="tag-saerch-title">“タグ検索”</h4>
-    <div class="tag-search">
-      <% if @tags.present? %>
-        <% @tags.each do |tag| %>
-          <%= link_to "#{tag.name}#{tag.taggings_count}", posts_path(tag_name: tag.name), class: "badge badge-light mr-1 p-2" %>
+<div class="wrapper">
+  <%=render partial: 'header'%>
+  <div class="main">
+    <div class="crevice-contents">
+      <h4 class="tag-saerch-title">“タグ検索”</h4>
+      <div class="tag-search">
+        <% if @tags.present? %>
+          <% @tags.each do |tag| %>
+            <%= link_to "#{tag.name}#{tag.taggings_count}", posts_path(tag_name: tag.name), class: "badge badge-light mr-1 p-2" %>
+          <% end %>
+        <% else %>
+          <p>登録されているタグはありません</P>
         <% end %>
-      <% else %>
-        <p>登録されているタグはありません</P>
-      <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="hikari-bgi">
-    <div class="container">
-      <ul class='post-lists'>
-        <%=post_lists(@posts)%>
-      </ul>
-    <%= paginate @posts %>
+    <div class="hikari-bgi">
+      <div class="container">
+        <ul class='post-lists'>
+          <%=post_lists(@posts)%>
+        </ul>
+      <%= paginate @posts %>
+      </div>
     </div>
   </div>
+  <%=render partial: 'footer'%>
 </div>
-<%=render partial: 'footer'%>
