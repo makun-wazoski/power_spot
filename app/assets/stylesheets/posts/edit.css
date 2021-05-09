@@ -1,13 +1,13 @@
-.update-prf-btn {
+.update-btn-contents {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-#edit-prf-btn {
+#edit-post-btn {
   width: 40%;
 }
 
-#prf-back-btn {
+#back-btn {
   width: 40%;
 }

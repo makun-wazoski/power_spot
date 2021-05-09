@@ -1,12 +1,13 @@
-<%=render partial: 'posts/header' %>
+<div class="wrapper">
+  <%=render partial: 'posts/header' %>
+  <div class="post-contents-main">
+    <div class="container">
+      <h3 class="post-title">思い出を投稿する</h3>
 
-<div class="post-contents-wrapper">
-  <div class="container">
-    <h3 class="post-title">思い出を投稿する</h3>
-
-    <div class="post-forms">
-      <%= render partial: "form", locals: { post: @post } %>
+      <div class="post-forms">
+        <%= render partial: "form", locals: { post: @post } %>
+      </div>
     </div>
   </div>
+  <%= render partial: 'posts/footer'%>
 </div>
-<%= render partial: 'posts/footer'%>

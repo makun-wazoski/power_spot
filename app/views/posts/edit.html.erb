@@ -1,68 +1,68 @@
-<%=render partial: 'posts/header' %>
+<div class="wrapper">
+  <%=render partial: 'posts/header' %>
+  <div class="posts-edit-main">
+    <div class="container">
+      <h3 class="post-title">記録情報の入力</h3>
 
-<div class="posts-edit-main">
-  <div class="container">
-    <h3 class="post-title">記録情報の入力</h3>
-
-    <div class="post-forms">
-      <%= form_with model:@post, url:post_path, method: :patch, local: true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-    
-        <%# 画像 %>
-        <div class="img-upload">
-          <div class="weight-bold-text">
-            画像
+      <div class="post-forms">
+        <%= form_with model:@post, url:post_path, method: :patch, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+      
+          <%# 画像 %>
+          <div class="img-upload">
+            <div class="weight-bold-text">
+              画像
+            </div>
+              <%= f.file_field :image, id:"post-image" %>
           </div>
-            <%= f.file_field :image, id:"post-image" %>
-        </div>
-        <%# 画像 %>
+          <%# 画像 %>
 
-        <%# 名前と記録情報 %>
-        <div class="post-form">
-          <div class="weight-bold-text">
-            名前
+          <%# 名前と記録情報 %>
+          <div class="post-form">
+            <div class="weight-bold-text">
+              名前
+            </div>
+              <%= f.text_field :name, class:"post-text", id:"post-name", placeholder:"名前（必須 20文字まで)", maxlength:"20" %>
           </div>
-            <%= f.text_field :name, class:"post-text", id:"post-name", placeholder:"名前（必須 20文字まで)", maxlength:"20" %>
-        </div>
 
-        <%# API参照記事 %>
-        <div class="post-form">
-          <div class="weight-bold-text">
-            Google Map
+          <%# API参照記事 %>
+          <div class="post-form">
+            <div class="weight-bold-text">
+              Google Map
+            </div>
+            <%=f.text_field :address, class:"post-text", id:"address", placeholder: "Google Mapの住所をコピーして貼り付けてください" %>   
           </div>
-          <%=f.text_field :address, class:"post-text", id:"address", placeholder: "Google Mapの住所をコピーして貼り付けてください" %>   
-        </div>
-        <%# API参照記事 %>
+          <%# API参照記事 %>
 
-        <div class="post-form">
-          <div class="weight-bold-text">
-            参考URL
+          <div class="post-form">
+            <div class="weight-bold-text">
+              参考URL
+            </div>
+              <%= f.text_area :url, class:"post-text", id:"post-url", placeholder:"url"%>
           </div>
-            <%= f.text_area :url, class:"post-text", id:"post-url", placeholder:"url"%>
-        </div>
 
-        <div class="post-form">
-          <%# <div class="weight-bold-text"> %>
-          <%= f.label :tag_list, "タグ付", class: "form-label"%>
-          <%# </div> %>
-          <%=f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control",id:"post-tag-list", placeholder: "タグを追加してください" %>   
-        </div>
-
-        <div class="post-form">
-          <div class="weight-bold-text">
-            感想
+          <div class="post-form">
+            <%# <div class="weight-bold-text"> %>
+            <%= f.label :tag_list, "タグ付", class: "form-label"%>
+            <%# </div> %>
+            <%=f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control",id:"post-tag-list", placeholder: "タグを追加してください" %>   
           </div>
-            <%=f.text_area :impressions, class:"post-text", id:"post-impressions", placeholder: "感想を書く"%>   
-        </div>
-        <%# 名前と記録情報 %>
 
-        <div class="update-btn-contents">
-          <%= f.submit "変更する" ,class: "btn btn-outline-primary btn-lg btn-sm", id:"edit-post-btn" %>
-          <%=link_to 'もどる', post_path, method: :get, class: "btn btn-outline-primary btn-lg btn-sm", id:"back-btn" %>
-        </div>
-      <% end %>
+          <div class="post-form">
+            <div class="weight-bold-text">
+              感想
+            </div>
+              <%=f.text_area :impressions, class:"post-text", id:"post-impressions", placeholder: "感想を書く"%>   
+          </div>
+          <%# 名前と記録情報 %>
+
+          <div class="update-btn-contents">
+            <%= f.submit "変更する" ,class: "btn btn-outline-primary btn-lg btn-sm", id:"edit-post-btn" %>
+            <%=link_to 'もどる', post_path, method: :get, class: "btn btn-outline-primary btn-lg btn-sm", id:"back-btn" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
+  <%= render partial: 'posts/footer'%>
 </div>
-
-<%= render partial: 'posts/footer'%>

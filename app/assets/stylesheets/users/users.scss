@@ -32,3 +32,17 @@
   width: 71vw;
   word-wrap: break-word; 
 }
+
+.update-prf-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#edit-prf-btn {
+  width: 40%;
+}
+
+#prf-back-btn {
+  width: 40%;
+}
