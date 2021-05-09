@@ -9,7 +9,7 @@
         </h3>
         <div class="user-img">
           <%if @user.image.attached?%>
-            <%=image_tag @user.image, size:"200", class: "user-iocon" %>
+            <%=image_tag @user.image, class: "user-icon" %>
           <% else %>
             <%= image_tag "account_def.png", alt:"user-icon", size: "200", class:"user-icon"%>
           <% end %>
