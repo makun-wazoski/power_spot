@@ -1,8 +1,8 @@
 # README
 
 ## アプリケーション名
-#### [Power-Spot]
-(http://176.34.26.16/)
+#### [Power-Spot](http://176.34.26.16/)
+http://176.34.26.16/
   <img width="1439" alt="画像が見当たりません" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
 
   
