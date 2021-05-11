@@ -1,7 +1,7 @@
 # README
 
 ## アプリケーション名
-#### [Power-Spot](http://176.34.26.16/)
+#### [POWER-SPOT](http://176.34.26.16/)
 http://176.34.26.16/
   <img width="1439" alt="画像が見当たりません" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
 
@@ -71,7 +71,8 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
   
 ## 実装予定の機能
 - DMメッセージ機能
-- ユーザー同士のコミュケーションを取れる機能
+- フォロー機能
+- 通知機能
   
 ## DB設計
 
