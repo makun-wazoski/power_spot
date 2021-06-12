@@ -2,7 +2,7 @@
 
 ## アプリケーション名
 #### [POWER-SPOT](http://176.34.26.16/)
-http://176.34.26.16/
+http://power-spot-app.com/
   <img width="1439" alt="画像が見当たりません" src="https://i.gyazo.com/82e4e0e17b7d6137438b6ac104e6204f.jpg">
 
   
@@ -14,7 +14,7 @@ http://176.34.26.16/
 旅の計画やスピリチュアル体験の参考に利用できる内容になっています。
   
 ## 使用技術
-HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub / AWS(EC2,S3,VPC) / Nginx / Unicorn / Capistrano
+HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / rubocop / MySQL2  / Git / GitHub / AWS(EC2,S3,VPC,ALB,ACM,Route53) / Nginx / Unicorn / Capistrano
   
 ## 作品の背景
 パワースポットの記録や情報収集に特化したSNSを作りたいと思い作成したアプリです。  
@@ -156,4 +156,4 @@ HTML / CSS / SCSS / Bootstrap / JavaScript / ruby 2.6.5 / rails 6.0.0 / RSpec / 
 <img width="792" alt="画像が見当たりません" src="https://i.gyazo.com/35379aaed2eda6c0a2222bbd2f534efd.png">
 
 ## インフラ構成図
-<img width="792" alt="画像が見当たりません" src="https://i.gyazo.com/4f153361e248e4fd34b20eab18b984cf.png">
+<img width="792" alt="画像が見当たりません" src="https://i.gyazo.com/7c30d311caf06fadfbaf094d66a8e334.png">
