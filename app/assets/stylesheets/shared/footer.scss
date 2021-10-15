@@ -3,6 +3,7 @@ footer {
   background-image: image-url("header-bgi.png");
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
+  background-size: cover;
 }
 
 .copyright {
